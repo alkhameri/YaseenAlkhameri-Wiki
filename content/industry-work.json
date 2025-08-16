@@ -3,77 +3,39 @@
   "subtitle": "Professional Experience",
   "description": "Professional experience and career highlights",
   "url": "/industry-work",
+  "disambiguation": "This article covers the professional work experience of [Aneesh Kumar](/). For his personal projects, see [Aneesh Kumar (Projects)](/projects).",
   "sections": [
     {
-      "title": "Overview",
+      "title": "Platform Engineering Intern @ Quantifind",
+      "date": "May 2022-Ongoing",
       "content": [
         {
           "type": "paragraph",
-          "text": "Professional experience in software engineering, with focus on web development and system architecture."
-        }
-      ]
-    },
-    {
-      "title": "Technical Skills",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Core competencies developed through professional experience:"
+          "text": "Working as a Platform Engineering Intern at Quantifind, a leading provider of risk analytics and consumer insights solutions for financial services and retail industries."
         }
       ],
-      "subsections": [
-        {
-          "title": "Frontend Development",
-          "content": [
-            {
-              "type": "list",
-              "items": [
-                "React and Next.js applications",
-                "TypeScript and modern JavaScript",
-                "CSS frameworks and responsive design",
-                "State management and component architecture"
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Backend Development",
-          "content": [
-            {
-              "type": "list",
-              "items": [
-                "RESTful API design and implementation",
-                "Database design and optimization",
-                "Authentication and security",
-                "Performance optimization and caching"
-              ]
-            }
-          ]
-        },
-        {
-          "title": "DevOps and Tools",
-          "content": [
-            {
-              "type": "list",
-              "items": [
-                "CI/CD pipeline setup and maintenance",
-                "Docker containerization",
-                "Cloud deployment and management",
-                "Monitoring and logging systems"
-              ]
-            }
-          ]
-        }
-      ]
+      "image": {
+        "src": "/placeholder.jpg",
+        "alt": "Data analytics dashboard",
+        "caption": "Real-time analytics and data visualization",
+        "position": "right"
+      }
     },
     {
-      "title": "Project Highlights",
+      "title": "Software Engineering Intern @ Oracle",
+      "date": "May 2021-August 2021",
       "content": [
         {
           "type": "paragraph",
-          "text": "Key projects and achievements in professional settings, including system migrations, feature implementations, and process improvements."
+          "text": "Worked as a Software Engineering Intern at Oracle, contributing to enterprise software solutions and database technologies."
         }
-      ]
+      ],
+      "image": {
+        "src": "/placeholder.jpg",
+        "alt": "Oracle software development",
+        "caption": "Enterprise software development environment",
+        "position": "right"
+      }
     }
   ]
 }

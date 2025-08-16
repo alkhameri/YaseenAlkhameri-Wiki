@@ -5,58 +5,47 @@
   "url": "/projects",
   "sections": [
     {
-      "title": "Overview",
+      "title": "Project 1",
       "content": [
         {
           "type": "paragraph",
-          "text": "This page contains a collection of projects that showcase various technical skills and interests. Projects range from web applications to system tools and experimental implementations."
+          "text": "A comprehensive web application showcasing modern development practices and user experience design."
         }
       ]
     },
     {
-      "title": "Web Applications",
+      "title": "Project 2",
       "content": [
         {
           "type": "paragraph",
-          "text": "Full-stack web applications built with modern technologies."
-        }
-      ],
-      "subsections": [
-        {
-          "title": "Personal Knowledge Base",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "A Wikipedia-style personal website built with Next.js and TypeScript. Features include:"
-            },
-            {
-              "type": "list",
-              "items": [
-                "Dynamic content management with JSON-based structure",
-                "Real-time search functionality",
-                "Responsive design with Tailwind CSS",
-                "Server-side rendering for optimal performance"
-              ]
-            }
-          ]
+          "text": "An innovative tool for data visualization and analysis with real-time processing capabilities."
         }
       ]
     },
     {
-      "title": "Tools and Utilities",
+      "title": "Project 3",
       "content": [
         {
           "type": "paragraph",
-          "text": "Command-line tools and utilities for development productivity."
+          "text": "A mobile-first application focused on productivity and collaboration features."
         }
       ]
     },
     {
-      "title": "Experimental Projects",
+      "title": "Project 4",
       "content": [
         {
           "type": "paragraph",
-          "text": "Proof-of-concept implementations and technology explorations."
+          "text": "An experimental implementation exploring machine learning algorithms and their practical applications."
+        }
+      ]
+    },
+    {
+      "title": "Project 5",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A full-stack solution integrating multiple APIs and services for seamless user workflow."
         }
       ]
     }

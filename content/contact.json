@@ -1,48 +1,38 @@
 {
   "title": "Contact",
   "subtitle": "Get in Touch",
-  "description": "Contact information and professional links",
+  "description": "Contact information and social links",
   "url": "/contact",
   "sections": [
     {
-      "title": "Professional Contact",
+      "title": "Contact Information",
       "content": [
         {
-          "type": "paragraph",
-          "text": "For professional inquiries, collaborations, or discussions about software engineering topics:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Email: [professional.email@example.com](mailto:professional.email@example.com)",
-            "LinkedIn: [linkedin.com/in/aneeshkumar](https://linkedin.com/in/aneeshkumar)",
-            "GitHub: [github.com/aneeshkumar](https://github.com/aneeshkumar)"
+          "type": "contactInfo",
+          "email": "your.email@example.com",
+          "phone": "+1 (555) 123-4567",
+          "socialLinks": [
+            {
+              "platform": "twitter",
+              "url": "https://twitter.com/aneeshkumar",
+              "username": "@aneeshkumar"
+            },
+            {
+              "platform": "youtube", 
+              "url": "https://youtube.com/@aneeshkumar",
+              "username": "@aneeshkumar"
+            },
+            {
+              "platform": "github",
+              "url": "https://github.com/aneeshkumar",
+              "username": "aneeshkumar"
+            },
+            {
+              "platform": "linkedin",
+              "url": "https://linkedin.com/in/aneeshkumar",
+              "username": "aneeshkumar"
+            }
           ]
-        }
-      ]
-    },
-    {
-      "title": "Social Media",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Connect on social platforms for updates and casual discussions:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Twitter: [@aneeshkumar](https://twitter.com/aneeshkumar)",
-            "Personal Blog: [blog.aneeshkumar.dev](https://blog.aneeshkumar.dev)"
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Response Time",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "I typically respond to professional inquiries within 24-48 hours. For urgent matters, please indicate the priority in your subject line."
         }
       ]
     }

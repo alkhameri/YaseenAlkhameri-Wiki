@@ -1,0 +1,42 @@
+{
+  "title": "Skills",
+  "subtitle": "Technical Stack",
+  "description": "Technical skills and expertise",
+  "url": "/skills",
+  "sections": [
+    {
+      "title": "Technical Skills",
+      "content": [
+        {
+          "type": "skillsGrid",
+          "categories": [
+            {
+              "name": "Languages",
+              "skills": ["JavaScript", "TypeScript", "Python", "Java", "C++", "SQL"]
+            },
+            {
+              "name": "Frontend",
+              "skills": ["React", "Next.js", "Vue.js", "Tailwind CSS", "Redux"]
+            },
+            {
+              "name": "Backend",
+              "skills": ["Node.js", "Express", "GraphQL", "PostgreSQL", "MongoDB"]
+            },
+            {
+              "name": "DevOps",
+              "skills": ["Docker", "AWS", "CI/CD", "Git", "Terraform"]
+            },
+            {
+              "name": "Tools",
+              "skills": ["VS Code", "Jest", "Webpack", "Figma", "Postman"]
+            },
+            {
+              "name": "Data",
+              "skills": ["Apache Spark", "Kafka", "D3.js", "ETL", "Analytics"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,16 +2,34 @@ import fs from 'fs'
 import path from 'path'
 
 export interface ContentBlock {
-  type: 'paragraph' | 'list' | 'heading' | 'quote'
+  type: 'paragraph' | 'list' | 'heading' | 'quote' | 'skillsGrid' | 'contactInfo'
   text?: string
   items?: string[]
   level?: number
+  categories?: Array<{
+    name: string
+    skills: string[]
+  }>
+  email?: string
+  phone?: string
+  socialLinks?: Array<{
+    platform: string
+    url: string
+    username: string
+  }>
 }
 
 export interface ContentSection {
   title: string
   content: ContentBlock[]
+  date?: string
   subsections?: ContentSection[]
+  image?: {
+    src: string
+    alt: string
+    caption?: string
+    position: 'left' | 'right'
+  }
 }
 
 export interface InfoboxField {

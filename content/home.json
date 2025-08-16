@@ -8,8 +8,10 @@
     "image": "/profile-photo.jpg",
     "imageCaption": "Aneesh Kumar in 2024",
     "fields": [
-      { "label": "Occupation", "value": "Software Engineer" },
-      { "label": "Known for", "value": "Web Development, System Architecture" }
+      { "label": "Born", "value": "Aneesh Kumar\nJune 21, 2004 (age 21)\nSan Francisco, California, U.S." },
+      { "label": "Location", "value": "San Francisco Bay Area" },
+      { "label": "Position", "value": "SWE Intern at [Quantifind](https://www.quantifind.com/)" },
+      { "label": "University", "value": "San Francisco State University" }
     ]
   },
   "sections": [
@@ -19,24 +21,6 @@
         {
           "type": "paragraph",
           "text": "Aneesh Kumar is a software engineer specializing in web development and system architecture."
-        }
-      ]
-    },
-    {
-      "title": "TODO",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Current projects and goals include:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Expanding knowledge in machine learning and AI",
-            "Building a comprehensive personal knowledge base",
-            "Contributing to developer community through blogging",
-            "Exploring new frameworks and technologies"
-          ]
         }
       ]
     }
