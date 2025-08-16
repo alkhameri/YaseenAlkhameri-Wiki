@@ -14,7 +14,7 @@ export default function Sidebar({ currentPath }: SidebarProps) {
         </div>
 
         <nav className="space-y-1 text-sm">
-          {navigationItems.slice(0, -1).map((item) => {
+          {navigationItems.map((item) => {
             const isActive = currentPath === item.href
             return (
               <div key={item.href} className="py-1">

@@ -1,27 +1,53 @@
 import Link from 'next/link'
-import { JSONContent, ContentBlock, ContentSection, Infobox } from '@/lib/json-content'
+import { JSONContent, ContentBlock, ContentSection, Infobox, ContentType, ImagePosition } from '@/lib/json-content'
 
 interface SectionImageProps {
   image: {
     src: string
     alt: string
     caption?: string
-    position: 'left' | 'right'
+    position: ImagePosition
+    link?: string
   }
 }
 
 function SectionImage({ image }: SectionImageProps) {
+  const imageElement = (
+    <img 
+      src={image.src} 
+      alt={image.alt}
+      className="w-full aspect-square object-contain rounded"
+    />
+  )
+
   return (
     <div className="border border-gray-300 rounded bg-gray-50 p-2">
-      <img 
-        src={image.src} 
-        alt={image.alt}
-        className="w-full h-auto rounded"
-      />
+      {image.link ? (
+        <a 
+          href={image.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block hover:opacity-80 transition-opacity cursor-pointer"
+        >
+          {imageElement}
+        </a>
+      ) : (
+        imageElement
+      )}
       {image.caption && (
-        <p className="text-xs text-gray-600 mt-2 text-center italic">
-          {image.caption}
-        </p>
+        <div className="text-xs text-gray-600 mt-2 text-center italic">
+          <div>{image.caption}</div>
+          {image.link && (
+            <a 
+              href={image.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block text-blue-600 hover:underline mt-1 cursor-pointer"
+            >
+              Click to view document
+            </a>
+          )}
+        </div>
       )}
     </div>
   )
@@ -139,7 +165,6 @@ function ContactInfo({ email, phone, socialLinks }: ContactInfoProps) {
       {/* Social Links */}
       {socialLinks && socialLinks.length > 0 && (
         <div className="text-center">
-          <h4 className="text-sm font-medium text-gray-600 mb-4">Connect</h4>
           <div className="flex justify-center gap-4">
             {socialLinks.map((link, index) => (
               <a
@@ -244,7 +269,7 @@ function WikiSection({ section, level }: { section: ContentSection; level: numbe
       )}
       
       {section.image ? (
-        <div className={`flex gap-4 ${section.image.position === 'left' ? 'flex-row' : 'flex-row-reverse'}`}>
+        <div className={`flex gap-4 ${section.image.position === ImagePosition.LEFT ? 'flex-row-reverse' : 'flex-row'}`}>
           <div className="flex-1 space-y-2">
             {section.content.map((block, index) => (
               <ContentBlock key={index} block={block} />
@@ -275,10 +300,10 @@ function WikiSection({ section, level }: { section: ContentSection; level: numbe
 
 function ContentBlock({ block }: { block: ContentBlock }) {
   switch (block.type) {
-    case 'paragraph':
+    case ContentType.PARAGRAPH:
       return <p className="text-gray-900 leading-relaxed text-sm">{block.text}</p>
     
-    case 'list':
+    case ContentType.LIST:
       return (
         <ul className="list-disc list-inside space-y-1 text-gray-900 ml-4">
           {block.items?.map((item, index) => (
@@ -287,17 +312,17 @@ function ContentBlock({ block }: { block: ContentBlock }) {
         </ul>
       )
     
-    case 'quote':
+    case ContentType.QUOTE:
       return (
         <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 bg-gray-50 py-2">
           {block.text}
         </blockquote>
       )
     
-    case 'skillsGrid':
+    case ContentType.SKILLS_GRID:
       return <SkillsGrid categories={block.categories || []} />
     
-    case 'contactInfo':
+    case ContentType.CONTACT_INFO:
       return <ContactInfo email={block.email} phone={block.phone} socialLinks={block.socialLinks} />
     
     default:

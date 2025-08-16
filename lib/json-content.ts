@@ -1,8 +1,20 @@
-import fs from 'fs'
-import path from 'path'
+
+export enum ContentType {
+  PARAGRAPH = 'paragraph',
+  LIST = 'list',
+  HEADING = 'heading',
+  QUOTE = 'quote',
+  SKILLS_GRID = 'skillsGrid',
+  CONTACT_INFO = 'contactInfo'
+}
+
+export enum ImagePosition {
+  LEFT = 'left',
+  RIGHT = 'right'
+}
 
 export interface ContentBlock {
-  type: 'paragraph' | 'list' | 'heading' | 'quote' | 'skillsGrid' | 'contactInfo'
+  type: ContentType
   text?: string
   items?: string[]
   level?: number
@@ -28,7 +40,8 @@ export interface ContentSection {
     src: string
     alt: string
     caption?: string
-    position: 'left' | 'right'
+    position: ImagePosition
+    link?: string
   }
 }
 
@@ -53,30 +66,41 @@ export interface JSONContent {
   sections: ContentSection[]
 }
 
-const contentDirectory = path.join(process.cwd(), 'content')
-
 export async function getJSONContent(slug: string): Promise<JSONContent> {
-  const filePath = path.join(contentDirectory, `${slug}.json`)
-  
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`Content file not found: ${slug}.json`)
+  try {
+    switch (slug) {
+      case 'home':
+        const { homeContent } = await import('../content/home')
+        return homeContent
+      case 'industry-work':
+        const { industryWorkContent } = await import('../content/industry-work')
+        return industryWorkContent
+      case 'research':
+        const { researchContent } = await import('../content/research')
+        return researchContent
+      case 'projects':
+        const { projectsContent } = await import('../content/projects')
+        return projectsContent
+      case 'blog':
+        const { blogContent } = await import('../content/blog')
+        return blogContent
+      case 'contact':
+        const { contactContent } = await import('../content/contact')
+        return contactContent
+      default:
+        throw new Error(`Content file not found: ${slug}`)
+    }
+  } catch (error) {
+    throw new Error(`Failed to load content: ${slug}`)
   }
-
-  const fileContents = fs.readFileSync(filePath, 'utf8')
-  const content = JSON.parse(fileContents) as JSONContent
-
-  return content
 }
 
 export async function getAllJSONContent(): Promise<Record<string, JSONContent>> {
-  const contentFiles = fs.readdirSync(contentDirectory)
+  const slugs = ['home', 'industry-work', 'research', 'projects', 'blog', 'contact']
   const allContent: Record<string, JSONContent> = {}
 
-  for (const fileName of contentFiles) {
-    if (fileName.endsWith('.json')) {
-      const slug = fileName.replace('.json', '')
-      allContent[slug] = await getJSONContent(slug)
-    }
+  for (const slug of slugs) {
+    allContent[slug] = await getJSONContent(slug)
   }
 
   return allContent
