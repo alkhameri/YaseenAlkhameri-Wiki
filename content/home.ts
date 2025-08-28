@@ -5,7 +5,7 @@ export const homeContent: JSONContent = {
   subtitle: "Software Engineer",
   description: "Personal knowledge base and portfolio",
   url: "/",
-  disambiguation: "This article is about the software engineer. For his technical blog, see [Aneesh Kumar (blog)](/blog).",
+  disambiguation: "This article is about the software engineer. For his technical blog, see [Aneesh Kumar (blog)](/blog). ",
   infobox: {
     image: "/profile-photo.jpg",
     imageCaption: "Aneesh Kumar in 2025",
