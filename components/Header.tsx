@@ -5,12 +5,9 @@ import SearchNavigation from "./SearchNavigation"
 
 export default function Header() {
   return (
-    <header className="border-b border-gray-300 bg-white">
+    <header className="hidden md:block border-b border-gray-300 bg-white">
       <div className="flex items-center justify-between px-4 py-2">
         <div className="flex items-center gap-4">
-          <button className="p-1 md:hidden">
-            <Menu className="h-5 w-5 text-gray-600" />
-          </button>
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
               <span className="text-xs font-bold text-gray-600">W</span>

@@ -7,13 +7,13 @@ interface SidebarProps {
 
 export default function Sidebar({ currentPath }: SidebarProps) {
   return (
-    <aside className="w-full md:w-1/5 md:min-w-[240px] bg-white border-r border-gray-200 min-h-screen md:sticky md:top-0 md:h-screen overflow-y-auto">
+    <aside className="w-full bg-white border-b md:border-b-0 md:border-r border-gray-200 md:w-1/5 md:min-w-[240px] md:min-h-screen md:sticky md:top-0 md:h-screen md:overflow-y-auto">
       <div className="p-4">
-        <div className="mb-4">
+        <div className="mb-4 hidden md:block">
           <h2 className="text-sm font-bold text-gray-900 mb-3">Navigation</h2>
         </div>
 
-        <nav className="space-y-1 text-sm">
+        <nav className="flex flex-wrap gap-x-4 gap-y-1 md:flex-col md:space-y-1 text-sm">
           {navigationItems.map((item) => {
             const isActive = currentPath === item.href
             return (
@@ -30,7 +30,7 @@ export default function Sidebar({ currentPath }: SidebarProps) {
             )
           })}
           
-          <div className="py-1 mt-4 pt-4 border-t border-gray-200">
+          <div className="py-1 md:mt-4 md:pt-4 md:border-t border-gray-200">
             <Link 
               href="/contact" 
               className={`text-blue-600 hover:underline ${
