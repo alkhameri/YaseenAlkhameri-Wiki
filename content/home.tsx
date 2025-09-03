@@ -1,6 +1,7 @@
 import React from "react";
 import { JSONContent } from "@/lib/json-content";
 import SpotifyNowPlaying from "@/components/SpotifyNowPlaying";
+import YouTubeLatestVideo from "@/components/YouTubeLatestVideo";
 
 export const homeContent: JSONContent = {
   title: "Aneesh Kumar",
@@ -59,7 +60,10 @@ export const homeContent: JSONContent = {
       title: "",
       description: (
         <>
-          <SpotifyNowPlaying />
+          <div className="space-y-4">
+            <SpotifyNowPlaying />
+            <YouTubeLatestVideo />
+          </div>
         </>
       ),
     },
