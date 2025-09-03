@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Menu, Languages } from "lucide-react"
-import SearchNavigation from "./SearchNavigation"
+import { Menu, Languages } from "lucide-react";
+import SearchNavigation from "./SearchNavigation";
 
 export default function Header() {
   return (
@@ -14,7 +14,9 @@ export default function Header() {
             </div>
             <div>
               <div className="text-lg font-bold text-black">WikipediA</div>
-              <div className="text-xs text-gray-600 -mt-1 hidden sm:block">The Free Encyclopedia</div>
+              <div className="text-xs text-gray-600 -mt-1 hidden sm:block">
+                The Free Encyclopedia
+              </div>
             </div>
           </div>
         </div>
@@ -29,5 +31,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

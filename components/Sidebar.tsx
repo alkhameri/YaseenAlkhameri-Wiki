@@ -1,8 +1,8 @@
-import Link from "next/link"
-import { navigationItems } from "@/lib/navigation"
+import Link from "next/link";
+import { navigationItems } from "@/lib/navigation";
 
 interface SidebarProps {
-  currentPath: string
+  currentPath: string;
 }
 
 export default function Sidebar({ currentPath }: SidebarProps) {
@@ -15,26 +15,28 @@ export default function Sidebar({ currentPath }: SidebarProps) {
 
         <nav className="flex flex-wrap gap-x-4 gap-y-1 md:flex-col md:space-y-1 text-sm">
           {navigationItems.map((item) => {
-            const isActive = currentPath === item.href
+            const isActive = currentPath === item.href;
             return (
               <div key={item.href} className="py-1">
-                <Link 
-                  href={item.href} 
+                <Link
+                  href={item.href}
                   className={`text-blue-600 hover:underline font-medium ${
-                    isActive ? 'bg-blue-50 px-2 py-1 rounded' : ''
+                    isActive ? "bg-blue-50 px-2 py-1 rounded" : ""
                   }`}
                 >
                   {item.sidebarLabel}
                 </Link>
               </div>
-            )
+            );
           })}
-          
+
           <div className="py-1 md:mt-4 md:pt-4 md:border-t border-gray-200">
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className={`text-blue-600 hover:underline ${
-                currentPath === '/contact' ? 'font-medium bg-blue-50 px-2 py-1 rounded' : ''
+                currentPath === "/contact"
+                  ? "font-medium bg-blue-50 px-2 py-1 rounded"
+                  : ""
               }`}
             >
               Contact
@@ -43,5 +45,5 @@ export default function Sidebar({ currentPath }: SidebarProps) {
         </nav>
       </div>
     </aside>
-  )
+  );
 }

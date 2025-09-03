@@ -1,17 +1,17 @@
-import Link from "next/link"
+import Link from "next/link";
 
 interface ProfileData {
-  born?: string
-  occupation?: string
-  education?: string
-  knownFor?: string
-  website?: string
-  photoCaption?: string
+  born?: string;
+  occupation?: string;
+  education?: string;
+  knownFor?: string;
+  website?: string;
+  photoCaption?: string;
 }
 
 interface ProfileInfoProps {
-  data: ProfileData
-  name: string
+  data: ProfileData;
+  name: string;
 }
 
 export default function ProfileInfo({ data, name }: ProfileInfoProps) {
@@ -25,7 +25,9 @@ export default function ProfileInfo({ data, name }: ProfileInfoProps) {
             alt={name}
             className="w-full h-48 sm:h-64 object-cover mb-2 rounded"
           />
-          <div className="text-sm text-gray-600">{data.photoCaption || "TODO: Add photo caption"}</div>
+          <div className="text-sm text-gray-600">
+            {data.photoCaption || "TODO: Add photo caption"}
+          </div>
         </div>
 
         <table className="w-full text-sm">
@@ -38,21 +40,31 @@ export default function ProfileInfo({ data, name }: ProfileInfoProps) {
             </tr>
             <tr className="border-t border-gray-300">
               <td className="font-bold py-2 pr-2 align-top">Occupation</td>
-              <td className="py-2">{data.occupation || "Computer science student, AI researcher"}</td>
+              <td className="py-2">
+                {data.occupation || "Computer science student, AI researcher"}
+              </td>
             </tr>
             <tr className="border-t border-gray-300">
               <td className="font-bold py-2 pr-2 align-top">Education</td>
-              <td className="py-2">{data.education || "TODO: Add educational background"}</td>
+              <td className="py-2">
+                {data.education || "TODO: Add educational background"}
+              </td>
             </tr>
             <tr className="border-t border-gray-300">
               <td className="font-bold py-2 pr-2 align-top">Known for</td>
-              <td className="py-2">{data.knownFor || "AI interpretability research, cognitive emergence studies, theoretical AI"}</td>
+              <td className="py-2">
+                {data.knownFor ||
+                  "AI interpretability research, cognitive emergence studies, theoretical AI"}
+              </td>
             </tr>
             <tr className="border-t border-gray-300">
               <td className="font-bold py-2 pr-2 align-top">Website</td>
               <td className="py-2">
                 {data.website ? (
-                  <Link href={data.website} className="text-blue-600 hover:underline">
+                  <Link
+                    href={data.website}
+                    className="text-blue-600 hover:underline"
+                  >
                     {data.website}
                   </Link>
                 ) : (
@@ -64,5 +76,5 @@ export default function ProfileInfo({ data, name }: ProfileInfoProps) {
         </table>
       </div>
     </div>
-  )
+  );
 }

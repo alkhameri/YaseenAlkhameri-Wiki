@@ -1,17 +1,18 @@
-import type { Metadata } from 'next'
-import './globals.css'
-import Header from '@/components/Header'
+import type { Metadata } from "next";
+import "./globals.css";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: 'Aneesh Kumar - Personal Website',
-  description: 'Personal website of Aneesh Kumar, Software Engineer and AI researcher',
-  generator: 'v0.dev',
-}
+  title: "Aneesh Kumar - Personal Website",
+  description:
+    "Personal website of Aneesh Kumar, Software Engineer and AI researcher",
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -22,5 +23,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }

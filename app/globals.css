@@ -16,7 +16,7 @@ body {
   .modal-nav-item {
     @apply transition-all duration-200 ease-in-out;
   }
-  
+
   .modal-nav-item:hover {
     @apply transform scale-[1.02];
   }

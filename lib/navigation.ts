@@ -4,4 +4,4 @@ export const navigationItems = [
   { href: "/research", label: "Research", sidebarLabel: "Research Work" },
   { href: "/projects", label: "Publications", sidebarLabel: "Projects" },
   { href: "/blog", label: "Blog", sidebarLabel: "Blog" },
-]
+];

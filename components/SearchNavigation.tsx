@@ -1,83 +1,85 @@
-"use client"
+"use client";
 
-import { Search } from "lucide-react"
-import Link from "next/link"
-import { useState, useEffect } from "react"
-import { navigationItems } from "@/lib/navigation"
-import { SearchResult } from "@/lib/search-json"
+import { Search } from "lucide-react";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { navigationItems } from "@/lib/navigation";
+import { SearchResult } from "@/lib/search-json";
 
 export default function SearchNavigation() {
-  const [isSearchFocused, setIsSearchFocused] = useState(false)
-  const [searchValue, setSearchValue] = useState("")
-  const [selectedIndex, setSelectedIndex] = useState(-1)
-  const [displayItems, setDisplayItems] = useState<SearchResult[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [displayItems, setDisplayItems] = useState<SearchResult[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Get search results or navigation suggestions
   useEffect(() => {
     const loadContent = async () => {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
-        const query = searchValue.trim() ? `?q=${encodeURIComponent(searchValue)}` : ''
-        const response = await fetch(`/api/search${query}`)
+        const query = searchValue.trim()
+          ? `?q=${encodeURIComponent(searchValue)}`
+          : "";
+        const response = await fetch(`/api/search${query}`);
         if (response.ok) {
-          const results = await response.json()
-          setDisplayItems(results)
+          const results = await response.json();
+          setDisplayItems(results);
         } else {
-          setDisplayItems([])
+          setDisplayItems([]);
         }
       } catch (error) {
-        console.error('Search error:', error)
-        setDisplayItems([])
+        console.error("Search error:", error);
+        setDisplayItems([]);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    const timeoutId = setTimeout(loadContent, searchValue.trim() ? 300 : 0) // Debounce search
-    return () => clearTimeout(timeoutId)
-  }, [searchValue])
+    const timeoutId = setTimeout(loadContent, searchValue.trim() ? 300 : 0); // Debounce search
+    return () => clearTimeout(timeoutId);
+  }, [searchValue]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!isSearchFocused) return
+    if (!isSearchFocused) return;
 
     switch (e.key) {
-      case 'ArrowDown':
-        e.preventDefault()
-        setSelectedIndex(prev => 
-          prev < displayItems.length - 1 ? prev + 1 : 0
-        )
-        break
-      case 'ArrowUp':
-        e.preventDefault()
-        setSelectedIndex(prev => 
-          prev > 0 ? prev - 1 : displayItems.length - 1
-        )
-        break
-      case 'Enter':
-        e.preventDefault()
+      case "ArrowDown":
+        e.preventDefault();
+        setSelectedIndex((prev) =>
+          prev < displayItems.length - 1 ? prev + 1 : 0,
+        );
+        break;
+      case "ArrowUp":
+        e.preventDefault();
+        setSelectedIndex((prev) =>
+          prev > 0 ? prev - 1 : displayItems.length - 1,
+        );
+        break;
+      case "Enter":
+        e.preventDefault();
         if (selectedIndex >= 0 && displayItems[selectedIndex]) {
-          const item = displayItems[selectedIndex]
+          const item = displayItems[selectedIndex];
           if (item.section) {
             // Scroll to section if it exists
-            window.location.href = `${item.url}#${item.section.toLowerCase().replace(/\s+/g, '-')}`
+            window.location.href = `${item.url}#${item.section.toLowerCase().replace(/\s+/g, "-")}`;
           } else {
-            window.location.href = item.url
+            window.location.href = item.url;
           }
         }
-        break
-      case 'Escape':
-        setIsSearchFocused(false)
-        setSelectedIndex(-1)
-        setSearchValue("")
-        break
+        break;
+      case "Escape":
+        setIsSearchFocused(false);
+        setSelectedIndex(-1);
+        setSearchValue("");
+        break;
     }
-  }
+  };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value)
-    setSelectedIndex(-1) // Reset selection when search changes
-  }
+    setSearchValue(e.target.value);
+    setSelectedIndex(-1); // Reset selection when search changes
+  };
 
   return (
     <div className="flex items-center gap-2 flex-1 max-w-md mx-4 sm:mx-8">
@@ -93,7 +95,7 @@ export default function SearchNavigation() {
           className="w-full px-3 py-1.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500"
         />
         <Search className="absolute right-2 top-1.5 h-4 w-4 text-gray-400" />
-        
+
         {isSearchFocused && (
           <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-96 overflow-y-auto">
             {isLoading ? (
@@ -104,22 +106,24 @@ export default function SearchNavigation() {
               <>
                 <div className="p-3 border-b border-gray-100">
                   <div className="text-xs text-gray-500 mb-2">
-                    {searchValue.trim() ? `Found ${displayItems.length} result${displayItems.length !== 1 ? 's' : ''}` : 'Quick Navigation'}
+                    {searchValue.trim()
+                      ? `Found ${displayItems.length} result${displayItems.length !== 1 ? "s" : ""}`
+                      : "Quick Navigation"}
                   </div>
                   <div className="space-y-2">
                     {displayItems.map((item, index) => (
                       <div
                         key={item.id}
                         className={`block px-3 py-2 rounded-md transition-colors cursor-pointer ${
-                          index === selectedIndex 
-                            ? 'bg-blue-50 border border-blue-200' 
-                            : 'hover:bg-gray-50 border border-transparent'
+                          index === selectedIndex
+                            ? "bg-blue-50 border border-blue-200"
+                            : "hover:bg-gray-50 border border-transparent"
                         }`}
                         onClick={() => {
                           if (item.section) {
-                            window.location.href = `${item.url}#${item.section.toLowerCase().replace(/\s+/g, '-')}`
+                            window.location.href = `${item.url}#${item.section.toLowerCase().replace(/\s+/g, "-")}`;
                           } else {
-                            window.location.href = item.url
+                            window.location.href = item.url;
                           }
                         }}
                       >
@@ -128,25 +132,34 @@ export default function SearchNavigation() {
                             <div className="text-sm font-medium text-gray-900 truncate">
                               {item.title}
                               {item.section && (
-                                <span className="text-gray-500 font-normal"> • {item.section}</span>
+                                <span className="text-gray-500 font-normal">
+                                  {" "}
+                                  • {item.section}
+                                </span>
                               )}
                             </div>
-                            <div 
+                            <div
                               className="text-xs text-gray-600 mt-1 line-clamp-2"
-                              dangerouslySetInnerHTML={{ __html: item.highlightedPreview }}
+                              dangerouslySetInnerHTML={{
+                                __html: item.highlightedPreview,
+                              }}
                             />
-                            {searchValue.trim() && item.matchedTerms.length > 0 && (
-                              <div className="flex flex-wrap gap-1 mt-1">
-                                {item.matchedTerms.slice(0, 3).map(term => (
-                                  <span key={term} className="text-xs bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">
-                                    {term}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
+                            {searchValue.trim() &&
+                              item.matchedTerms.length > 0 && (
+                                <div className="flex flex-wrap gap-1 mt-1">
+                                  {item.matchedTerms.slice(0, 3).map((term) => (
+                                    <span
+                                      key={term}
+                                      className="text-xs bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded"
+                                    >
+                                      {term}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
                           </div>
                           <div className="text-xs text-gray-400 ml-2 flex-shrink-0">
-                            {item.url === '/' ? 'Home' : item.url.slice(1)}
+                            {item.url === "/" ? "Home" : item.url.slice(1)}
                           </div>
                         </div>
                       </div>
@@ -171,5 +184,5 @@ export default function SearchNavigation() {
         Search
       </button>
     </div>
-  )
+  );
 }
