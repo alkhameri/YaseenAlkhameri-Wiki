@@ -4,11 +4,11 @@ import SpotifyNowPlaying from "@/components/SpotifyNowPlaying";
 
 export const homeContent: JSONContent = {
   title: "Yaseen Alkhameri",
-  subtitle: "Digital Systems & Hardware Engineer",
-  description: "Portfolio: RISC-V core, Verilog RTL, FPGA/ASIC, OpenLane",
+  subtitle: "Hardware Engineer",
+  description: "Personal project dump/portfolio",
   url: "/",
   disambiguation:
-    "This article is about a digital systems engineer focused on RTL, FPGA, and ASIC flows.",
+    "This article is about the hardware engineer. For his technical blog, see [Yaseen Alkhameri (blog)](/blog).",
   infobox: {
     image: "/profile-photo.png",
     imageCaption: "Yaseen Alkhameri",
@@ -21,7 +21,7 @@ export const homeContent: JSONContent = {
       {
         label: "Position",
         value:
-          "Embedded Systems Intern, Hardware Team — Dr. Zhongli Pan's Lab, UC Davis",
+          "Embedded Systems Intern, Hardware Team - Dr. Zhongli Pan's Lab, UC Davis",
       },
       { label: "Focus", value: "ASIC / FPGA / RTL / Verilog / Verification" },
     ],
