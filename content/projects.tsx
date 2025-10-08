@@ -9,7 +9,7 @@ export const projectsContent: JSONContent = {
   sections: [
     {
       title: "Compact RISC-V Core (Verilog)",
-      githubUrl: "https://github.com/alkhameri/riscv-core",
+      githubUrl: "https://github.com/alkhameri/riscv-core-verilog",
       image: {
         src: "/GDSLayout.png",
         alt: "RISC-V core block diagram",
