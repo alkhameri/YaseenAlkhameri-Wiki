@@ -1,30 +1,29 @@
 import React from "react";
 import { JSONContent } from "@/lib/json-content";
 import SpotifyNowPlaying from "@/components/SpotifyNowPlaying";
-import YouTubeLatestVideo from "@/components/YouTubeLatestVideo";
 
 export const homeContent: JSONContent = {
-  title: "Aneesh Kumar",
-  subtitle: "Software Engineer",
-  description: "Personal knowledge base and portfolio",
+  title: "Yaseen Alkhameri",
+  subtitle: "Digital Systems & Hardware Engineer",
+  description: "Portfolio: RISC-V core, Verilog RTL, FPGA/ASIC, OpenLane",
   url: "/",
   disambiguation:
-    "This article is about the software engineer. For his technical blog, see [Aneesh Kumar (blog)](/blog). ",
+    "This article is about a digital systems engineer focused on RTL, FPGA, and ASIC flows.",
   infobox: {
-    image: "/profile-photo.jpg",
-    imageCaption: "Aneesh Kumar in 2025",
+    image: "/profile-photo.png",
+    imageCaption: "Yaseen Alkhameri",
     fields: [
       {
         label: "Born",
-        value:
-          "Aneesh Kumar\nJune 21, 2004 (age 21)\nSan Francisco, California, U.S.",
+        value: "Yaseen Alkhameri\nMay 25, 2004 (age 21)\nOakland, California, U.S.",
       },
       { label: "Location", value: "San Francisco Bay Area" },
       {
         label: "Position",
-        value: "SWE Intern at [Quantifind](https://www.quantifind.com/)",
+        value:
+          "Embedded Systems Intern, Hardware Team — Dr. Zhongli Pan's Lab, UC Davis",
       },
-      { label: "University", value: "San Francisco State University" },
+      { label: "Focus", value: "ASIC / FPGA / RTL / Verilog / Verification" },
     ],
   },
   sections: [
@@ -32,27 +31,21 @@ export const homeContent: JSONContent = {
       title: "Overview",
       description: (
         <>
-          <strong>Aneesh Kumar</strong> is an AI researcher and engineer whose
-          work spans independent research, interpretability, and agent design.
-          His projects range from studying [emergent
-          behaviors](https://en.wikipedia.org/wiki/Emergent_behavior) in [large
-          language models](https://en.wikipedia.org/wiki/Large_language_model)
-          and theoretical questions about intelligence to building practical
-          systems in computer science and engineering. He is especially
-          interested in the intersection of
-          [philosophy](https://en.wikipedia.org/wiki/Philosophy_of_artificial_intelligence)
-          and AI, exploring how ideas about reasoning, memory, and learning can
-          inform the design of artificial systems.
+          <strong>Yaseen Alkhameri</strong> blends a practical love of hardware
+          with everyday curiosities. By day he designs and verifies RTL — most
+          recently a compact RV32I RISC‑V core in Verilog that was exercised
+          through ModelSim and Verilator and taken through an OpenLane flow to
+          GDS II. By night you’ll often find him cataloging records, sorting
+          Pokémon cards, or tinkering with mechanical keyboards — he currently
+          serves as president of the Mechanical Keyboards Club at UC Davis.
           <br />
           <br />
-          He is the founder and president of the [Artificial Intelligence
-          Club](https://ai-at-sfsu.vercel.app/home) at{" "}
-          <strong>San Francisco State University</strong>, where he leads
-          initiatives to engage students with machine learning, symbolic AI, and
-          agent systems. Alongside his academic pursuits, Aneesh is a{" "}
-          <strong>Platform Engineering Intern</strong> at
-          [Quantifind](https://quantifind.com), where he contributes to the
-          scalable infrastructure that supports AI-driven solutions.
+          His work sits at the intersection of pragmatic engineering and
+          systems thinking: FPGA prototyping (Intel M9K BRAM inference), RTL
+          verification, and the full-stack hand-off to physical design. He’s
+          also active in hands-on competitions and collaborations — from
+          building browser-agent tools that won at AgentHacks to community
+          projects like AggieShare (HackDavis Hacker's Choice).
         </>
       ),
     },
@@ -62,7 +55,21 @@ export const homeContent: JSONContent = {
         <>
           <div className="space-y-4">
             <SpotifyNowPlaying />
-            <YouTubeLatestVideo />
+            <div className="p-4 border rounded-md">
+              <h4 className="text-lg font-semibold">Working on…</h4>
+              <p className="text-sm text-gray-600 mt-1">
+                Pipelining a compact RV32I RISC‑V core (Verilog). Docs,
+                simulation, and FPGA notes are on GitHub:
+              </p>
+              <a
+                href="https://github.com/alkhameri/riscv-core"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline mt-2 inline-block"
+              >
+                github.com/alkhameri/riscv-core
+              </a>
+            </div>
           </div>
         </>
       ),

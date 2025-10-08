@@ -3,9 +3,9 @@ import "./globals.css";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Aneesh Kumar - Personal Website",
+  title: "Yaseen Alkhameri - Hardware & Embedded Systems",
   description:
-    "Personal website of Aneesh Kumar, Software Engineer and AI researcher",
+    "Personal website of Yaseen Alkhameri — RTL, FPGA, ASIC, and embedded systems",
   generator: "v0.dev",
 };
 

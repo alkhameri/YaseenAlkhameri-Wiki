@@ -15,10 +15,10 @@ export const contactContent: JSONContent = {
             <div>
               <h4 className="text-sm font-medium text-gray-600 mb-2">Email</h4>
               <a
-                href="mailto:aneesh.kumar6214@gmail.com"
+                href="mailto:yalkhameri@gmail.com"
                 className="text-lg text-blue-600 hover:underline"
               >
-                aneesh.kumar6214@gmail.com
+                yalkhameri@gmail.com
               </a>
             </div>
 
@@ -28,11 +28,11 @@ export const contactContent: JSONContent = {
               </h4>
               <div className="flex justify-center gap-4">
                 <a
-                  href="https://linkedin.com/in/aneesh6214"
+                  href="https://linkedin.com/in/yaseenalkhameri"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 border border-gray-300 rounded-full text-gray-600 hover:bg-blue-600 hover:text-white transition-all duration-200"
-                  title="LinkedIn: aneesh6214"
+                    title="LinkedIn: Yaseen Alkhameri"
                 >
                   <svg
                     className="w-6 h-6"
@@ -43,11 +43,11 @@ export const contactContent: JSONContent = {
                   </svg>
                 </a>
                 <a
-                  href="https://github.com/aneesh6214"
+                  href="https://github.com/alkhameri"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 border border-gray-300 rounded-full text-gray-600 hover:bg-gray-800 hover:text-white transition-all duration-200"
-                  title="GitHub: aneesh6214"
+                    title="GitHub: alkhameri"
                 >
                   <svg
                     className="w-6 h-6"
@@ -58,11 +58,11 @@ export const contactContent: JSONContent = {
                   </svg>
                 </a>
                 <a
-                  href="https://twitter.com/aneesh6214"
+                  href="https://twitter.com/shugerun"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 border border-gray-300 rounded-full text-gray-600 hover:bg-blue-500 hover:text-white transition-all duration-200"
-                  title="Twitter: @aneesh6214"
+                    title="Twitter: @shugerun"
                 >
                   <svg
                     className="w-6 h-6"
@@ -73,11 +73,11 @@ export const contactContent: JSONContent = {
                   </svg>
                 </a>
                 <a
-                  href="https://www.youtube.com/@Aneesh6214"
+                  href="https://www.youtube.com/@catRTL"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 border border-gray-300 rounded-full text-gray-600 hover:bg-red-500 hover:text-white transition-all duration-200"
-                  title="YouTube: @Aneesh6214"
+                    title="YouTube: @catRTL"
                 >
                   <svg
                     className="w-6 h-6"

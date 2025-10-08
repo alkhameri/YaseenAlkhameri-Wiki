@@ -53,9 +53,7 @@ export async function getJSONContent(slug: string): Promise<JSONContent> {
           "../content/industry-work"
         );
         return industryWorkContent;
-      case "research":
-        const { researchContent } = await import("../content/research");
-        return researchContent;
+      // research removed from site
       case "projects":
         const { projectsContent } = await import("../content/projects");
         return projectsContent;
@@ -79,7 +77,6 @@ export async function getAllJSONContent(): Promise<
   const slugs = [
     "home",
     "industry-work",
-    "research",
     "projects",
     "blog",
     "contact",
