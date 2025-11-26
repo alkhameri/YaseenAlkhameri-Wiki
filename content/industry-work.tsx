@@ -9,33 +9,32 @@ export const industryWorkContent: JSONContent = {
     "This article covers the professional work experience of Yaseen Alkhameri. For personal projects, see the Projects page.",
   sections: [
     {
-      title: "Embedded Systems Engineering Intern — SmartProbe Hardware Team",
-      date: "2025",
+      title: "Embedded Systems Engineering Intern - AIVision Food",
+      date: "June 2025 - Present",
       description: (
         <>
-          Joined AIVision Food in Davis, CA as an <strong>Embedded Systems
-          Engineering Intern</strong> on the SmartProbe hardware team.
+          Contributing to the development of an IoT environmental monitoring
+          system built on Zephyr RTOS at AIVision Food in Davis, CA.
           <br />
           <br />
-          Yaseen worked on embedded systems programming for Nordic nRF52 and
-          ESP32 devices, focusing on low-power firmware design and BLE
-          connectivity. Tasks included updating SDK versions, debugging and
-          fixing camera and sensor issues, and implementing over-the-air
-          update features to support reliable field deployment.
+          Designed and optimized firmware for Bluetooth Low Energy (BLE) data
+          transmission, ensuring low-power operation and reliable
+          sensor-to-gateway connectivity. Worked with Nordic nRF52 and ESP32
+          devices, focusing on baremetal C programming, RTOS task management,
+          and hardware bring-up workflows.
           <br />
           <br />
-          Responsibilities included firmware development in C/C++, integration
-          of Bluetooth Low Energy stacks, and collaboration with international
-          partners in China to coordinate manufacturing, firmware
-          certification, and deployment logistics. The internship emphasized
-          production-ready embedded design, wireless communication, and
-          hands-on problem solving across hardware and software boundaries.
+          Collaborated with international team members, including partners in
+          China, to support manufacturing, firmware certification, and
+          deployment logistics. Assisted with hardware debugging, validation,
+          and integration of camera and sensor subsystems for production
+          deployment.
         </>
       ),
       image: {
         src: "/aivisionfood.png",
         alt: "AIVision Food SmartProbe",
-        caption: "AIVision Food — SmartProbe",
+        caption: "AIVision Food - SmartProbe",
         position: ImagePosition.LEFT,
       },
     },
