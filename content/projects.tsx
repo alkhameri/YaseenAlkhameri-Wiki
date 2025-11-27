@@ -35,6 +35,38 @@ export const projectsContent: JSONContent = {
       ),
     },
     {
+      title: "RV32 Microkernel",
+      githubUrl: "https://github.com/alkhameri/rv32-microkernel",
+      image: {
+        src: "/kernel.png",
+        alt: "RV32 Microkernel architecture",
+        caption: "RV32 Microkernel: machine-mode boot, scheduler, and virtual memory",
+        position: ImagePosition.LEFT,
+      },
+      description: (
+        <>
+          A minimal but functional RISC-V RV32 microkernel that boots in
+          machine mode on QEMU's virt platform. Demonstrates a complete
+          bare-metal system including hand-written entry and trap assembly,
+          timer interrupts, preemptive round-robin scheduling, kernel threads
+          with dedicated stacks, Sv32 virtual memory, a bump-based physical
+          memory allocator, synchronization primitives (spinlocks and
+          semaphores), and a timestamped UART logger. Features a basic syscall
+          interface (ecall-based yield) with cooperative and preemptive
+          scheduling demo threads.
+          <br />
+          <br />
+          The kernel showcases full register save/restore with trap frames,
+          CLINT timer driver with 10 ms tick programming, automatic GP setup
+          for kernel threads, and an identity-mapped Sv32 page table. All
+          subsystems are compartmentalized and well-documented for
+          experimentation and extension.
+        </>
+      ),
+      technologies:
+        "RISC-V Assembly, C, QEMU, Machine-mode, Virtual Memory, Scheduling",
+    },
+    {
       title: "Real-Time Hardware Video Processing System",
       date: "In Progress",
       image: {
@@ -69,6 +101,48 @@ export const projectsContent: JSONContent = {
         </>
       ),
       technologies: "Verilog, Quartus, ModelSim, DE1-SoC, VGA, D8M-GPIO, Baremetal C, HPS",
+    },
+    {
+      title: "Hardware FIFO Design",
+      image: {
+        src: "/fifo.png",
+        alt: "Hardware FIFO Design",
+        caption: "Parameterized FIFO with dual-port M9K memory and clock-domain crossing",
+        position: ImagePosition.LEFT,
+      },
+      description: (
+        <>
+          Designed a parameterized FIFO in Verilog using dual-port M9K memory
+          blocks on the DE10-Lite FPGA. Created read and write modules
+          operating at different clock frequencies to demonstrate clock-domain
+          crossing (CDC) data transfer. Verified functionality through ModelSim
+          simulations and Quartus synthesis results. Implemented circular FIFO
+          architecture with full and empty condition detection, and tested
+          across multiple clock domain scenarios including same frequency,
+          producer faster than consumer, and consumer faster than producer.
+        </>
+      ),
+      technologies:
+        "Verilog, ModelSim, Quartus, DE10-Lite, M9K Memory, Clock Domain Crossing",
+    },
+    {
+      title: "FPGA Dice Game",
+      image: {
+        src: "/dice.png",
+        alt: "FPGA Dice Game",
+        caption: "Schematic of Score Processing and Display Circuit",
+        position: ImagePosition.RIGHT,
+      },
+      description: (
+        <>
+          Realized Moore and Mealy finite state machine representations of a
+          dice game using RTL and block schematics. Applied knowledge of
+          sequential network design through implementation of counters and
+          memory. Analyzed design completely through Verilog testbenches,
+          ModelSim, and DE10-Lite FPGA deployment.
+        </>
+      ),
+      technologies: "Verilog, ModelSim, Quartus, DE10-Lite, FSM Design",
     },
     {
       title: "dExtra Tools - Dex Browser Agent Extensions",
