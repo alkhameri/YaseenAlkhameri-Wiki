@@ -114,4 +114,15 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  /* Make external/internal hyperlinks clear: blue text, underline on hover */
+  a {
+    color: #1d4ed8; /* blue-700 */
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+    outline: none;
+  }
 }

@@ -18,17 +18,19 @@ export const projectsContent: JSONContent = {
       },
       description: (
         <>
-          A compact, synthesizable RV32I-style RISC‑V core implemented in
-          Verilog. The design contains a simple program counter, register
+          Yaseen designed a compact, synthesizable RV32I-style
+          <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC‑V</a> core implemented in
+          <span> </span><a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>. The design contains a simple program counter, register
           file, ALU, control unit, and synchronous instruction/data memories
           designed to infer Intel M9K BRAMs. The repository includes
           reusable RTL components (muxes, adders), a small testbench suite
-          compatible with ModelSim and Verilator, and documentation for
+          compatible with <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer">ModelSim</a> <span> </span>and
+          <span> </span><a href="https://www.veripool.org/verilator/" target="_blank" rel="noopener noreferrer">Verilator</a>, and documentation for
           Quartus-based FPGA builds.
           <br />
           <br />
           Verification used directed testbenches and waveform inspection to
-          validate instruction execution. An OpenLane flow was used to
+          validate instruction execution. An <a href="https://openlane.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">OpenLane</a> flow was used to
           generate a GDS II layout, demonstrating an end-to-end path from
           RTL to a fabrication-ready layout.
         </>
@@ -45,22 +47,23 @@ export const projectsContent: JSONContent = {
       },
       description: (
         <>
-          A minimal but functional RISC-V RV32 microkernel that boots in
-          machine mode on QEMU's virt platform. Demonstrates a complete
-          bare-metal system including hand-written entry and trap assembly,
-          timer interrupts, preemptive round-robin scheduling, kernel threads
-          with dedicated stacks, Sv32 virtual memory, a bump-based physical
-          memory allocator, synchronization primitives (spinlocks and
-          semaphores), and a timestamped UART logger. Features a basic syscall
-          interface (ecall-based yield) with cooperative and preemptive
+          Yaseen implemented a minimal but functional RISC-V RV32 microkernel
+          that boots in machine mode on <a href="https://www.qemu.org/" target="_blank" rel="noopener noreferrer">QEMU</a>'s virt platform.
+          The project demonstrates a complete bare-metal system including
+          hand-written entry and trap assembly, timer interrupts,
+          preemptive round-robin scheduling, kernel threads with dedicated
+          stacks, Sv32 virtual memory, a bump-based physical memory
+          allocator, synchronization primitives (spinlocks and semaphores),
+          and a timestamped UART logger. It includes a basic syscall
+          interface (ECALL-based yield) with cooperative and preemptive
           scheduling demo threads.
           <br />
           <br />
           The kernel showcases full register save/restore with trap frames,
-          CLINT timer driver with 10 ms tick programming, automatic GP setup
-          for kernel threads, and an identity-mapped Sv32 page table. All
-          subsystems are compartmentalized and well-documented for
-          experimentation and extension.
+          a CLINT timer driver with 10 ms tick programming, automatic GP
+          setup for kernel threads, and an identity-mapped Sv32 page table.
+          The repository is suitable for exploration of bare-metal systems
+          and low-level RISC-V platform software.
         </>
       ),
       technologies:
@@ -77,11 +80,12 @@ export const projectsContent: JSONContent = {
       },
       description: (
         <>
-          A real-time hardware video processing system implemented on the
-          Terasic DE1-SoC board using a D8M-GPIO camera and VGA video
+          Yaseen developed a real-time hardware video processing system for
+          the Terasic DE1-SoC board using a D8M-GPIO camera and VGA video
           interface. The project includes multiple video processing functions
-          implemented in Verilog, with a focus on pipelined architectures,
-          memory management, and hardware optimization.
+          implemented in <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>, with a focus on
+          pipelined architectures, memory management, and hardware
+          optimization.
           <br />
           <br />
           The system implements an "old film" effect processor using
@@ -92,12 +96,13 @@ export const projectsContent: JSONContent = {
           designed to process video at real-time frame rates.
           <br />
           <br />
-          The project emphasizes baremetal C programming on the embedded HPS
+          The project emphasizes baremetal <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C</a> programming on the embedded HPS
           processor for bit-accurate software implementations, alongside
-          comprehensive Verilog testbenches and golden reference models. Design
-          work includes detailed pipelined block diagrams, timing analysis,
-          arithmetic optimization, and performance characterization through
-          maximum clock rate, throughput, and latency measurements.
+          comprehensive <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer">ModelSim</a> <span> </span>testbenches and
+          golden reference models. Design work includes detailed pipelined
+          block diagrams, timing analysis, arithmetic optimization, and
+          performance characterization through maximum clock rate,
+          throughput, and latency measurements.
         </>
       ),
       technologies: "Verilog, Quartus, ModelSim, DE1-SoC, VGA, D8M-GPIO, Baremetal C, HPS",
@@ -112,14 +117,13 @@ export const projectsContent: JSONContent = {
       },
       description: (
         <>
-          Designed a parameterized FIFO in Verilog using dual-port M9K memory
-          blocks on the DE10-Lite FPGA. Created read and write modules
-          operating at different clock frequencies to demonstrate clock-domain
-          crossing (CDC) data transfer. Verified functionality through ModelSim
-          simulations and Quartus synthesis results. Implemented circular FIFO
-          architecture with full and empty condition detection, and tested
-          across multiple clock domain scenarios including same frequency,
-          producer faster than consumer, and consumer faster than producer.
+          Yaseen designed a parameterized FIFO in <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a> using
+          dual-port M9K memory blocks on the DE10-Lite FPGA. He created read
+          and write modules operating at different clock frequencies to
+          demonstrate clock-domain crossing (CDC) data transfer and verified
+          functionality through <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer">ModelSim</a> <span> </span>simulations and Quartus synthesis results. The implementation uses a
+          circular FIFO architecture with full and empty condition detection
+          and was tested across multiple clock-domain scenarios.
         </>
       ),
       technologies:
@@ -135,11 +139,13 @@ export const projectsContent: JSONContent = {
       },
       description: (
         <>
-          Realized Moore and Mealy finite state machine representations of a
-          dice game using RTL and block schematics. Applied knowledge of
-          sequential network design through implementation of counters and
-          memory. Analyzed design completely through Verilog testbenches,
-          ModelSim, and DE10-Lite FPGA deployment.
+          Yaseen implemented Moore and Mealy finite state machine
+          representations of a dice game using RTL and block schematics.
+          He applied sequential network design through implementation of
+          counters and memory and verified the design using <span> </span>
+          <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a> <span> </span>testbenches and
+          <span> </span><a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer">ModelSim</a>, then demonstrated the design on the
+          DE10-Lite FPGA.
         </>
       ),
       technologies: "Verilog, ModelSim, Quartus, DE10-Lite, FSM Design",
