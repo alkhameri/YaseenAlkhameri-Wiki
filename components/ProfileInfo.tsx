@@ -41,7 +41,7 @@ export default function ProfileInfo({ data, name }: ProfileInfoProps) {
             <tr className="border-t border-gray-300">
               <td className="font-bold py-2 pr-2 align-top">Occupation</td>
               <td className="py-2">
-                {data.occupation || "Computer science student, AI researcher"}
+                {data.occupation || "Computer engineering student, hardware engineer"}
               </td>
             </tr>
             <tr className="border-t border-gray-300">
@@ -54,7 +54,7 @@ export default function ProfileInfo({ data, name }: ProfileInfoProps) {
               <td className="font-bold py-2 pr-2 align-top">Known for</td>
               <td className="py-2">
                 {data.knownFor ||
-                  "AI interpretability research, cognitive emergence studies, theoretical AI"}
+                  "RTL design, embedded firmware, FPGA prototyping, verification"}
               </td>
             </tr>
             <tr className="border-t border-gray-300">

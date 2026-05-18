@@ -11,7 +11,7 @@ export const homeContent: JSONContent = {
     "This article is about the hardware engineer. For his technical blog, see [Yaseen Alkhameri (blog)](/blog).",
   infobox: {
     image: "/profile-photo.png",
-    imageCaption: "Yaseen Alkhameri",
+    imageCaption: "Yaseen Alkhameri in 2025",
     fields: [
       {
         label: "Born",
@@ -21,9 +21,13 @@ export const homeContent: JSONContent = {
       {
         label: "Position",
         value:
-          "Firmware Engineering Intern @ AIVision Food, Davis, CA",
+          "Incoming Product Development Engineering Intern @ [Solidigm](https://www.solidigm.com/)",
       },
-      { label: "Focus", value: "RTL / Firmware / Verification" },
+      {
+        label: "University",
+        value:
+          "[University of California, Davis](https://www.ucdavis.edu/)",
+      },
     ],
   },
   sections: [
@@ -31,20 +35,29 @@ export const homeContent: JSONContent = {
       title: "Overview",
       description: (
         <>
-          <strong>Yaseen Alkhameri</strong> is a hardware engineer with a focus
-          on <a href="https://en.wikipedia.org/wiki/Register-transfer_level" target="_blank" rel="noopener noreferrer">RTL</a> design,
-          baremetal <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C</a> programming, and embedded systems
-          development. His interests span <a href="https://en.wikipedia.org/wiki/Register-transfer_level" target="_blank" rel="noopener noreferrer">register-transfer level</a> design,
-          <span> </span><a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array" target="_blank" rel="noopener noreferrer">FPGA</a> prototyping, and low-level systems programming, with particular
-          attention to real-time operating systems and the <a href="https://en.wikipedia.org/wiki/Linux_kernel" target="_blank" rel="noopener noreferrer">Linux kernel</a>.
+          <strong>Yaseen Alkhameri</strong> is a computer engineering student
+          at <a href="https://www.ucdavis.edu/" target="_blank" rel="noopener noreferrer">UC Davis</a> focused on
+          <span> </span><a href="https://en.wikipedia.org/wiki/Register-transfer_level" target="_blank" rel="noopener noreferrer">RTL</a> design,
+          embedded firmware, and digital verification. His work spans
+          <span> </span><a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array" target="_blank" rel="noopener noreferrer">FPGA</a> prototyping,
+          synthesizable <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>,
+          bare-metal <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C</a>, and
+          <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC-V</a> systems.
           <br />
           <br />
-          His work emphasizes the practical aspects of digital design: writing
-          synthesizable Verilog for <span> </span><a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array" target="_blank" rel="noopener noreferrer">FPGA</a> and ASIC targets, developing <a href="https://en.wikipedia.org/wiki/Firmware" target="_blank" rel="noopener noreferrer">firmware</a><span> </span>
-          in baremetal C for resource-constrained embedded platforms, and
-          exploring the intersection of hardware and operating systems. He
-          currently serves as president of the Mechanical Keyboards Club at <a href="https://www.ucdavis.edu/" target="_blank" rel="noopener noreferrer">UC Davis</a> and enjoys cataloging records, sorting Pokémon cards, and
-          tinkering with mechanical keyboards in his spare time.
+          He previously worked as a Firmware Engineering Intern at AIVision
+          Food and will join <a href="https://www.solidigm.com/" target="_blank" rel="noopener noreferrer">Solidigm</a>
+          <span> </span>as a Product Development Engineering Intern in June
+          2026. His projects include a real-time FPGA matched-filter object
+          detector, a synthesizable RISC-V CPU, and a preemptive RISC-V
+          microkernel.
+          <br />
+          <br />
+          Outside of coursework and hardware projects, he is president of the
+          Mechanical Keyboards Club at UC Davis. He also keeps a
+          <span> </span><a href="https://www.discogs.com/user/shugerun/collection" target="_blank" rel="noopener noreferrer">vinyl record collection</a>,
+          experiments with custom keyboard firmware and layouts, and tracks
+          his <a href="https://www.pkmn.gg/u/shugerun?tab=collection" target="_blank" rel="noopener noreferrer">Pokemon card collection</a>.
         </>
       ),
     },
@@ -52,17 +65,7 @@ export const homeContent: JSONContent = {
       title: "",
       description: (
         <>
-          <div className="space-y-4">
-            <SpotifyNowPlaying />
-            <div className="p-4 border rounded-md">
-              <h4 className="text-lg font-semibold">Working on…</h4>
-              <p className="text-sm text-gray-600 mt-1">
-                Real-time hardware video processing system on Terasic DE1-SoC
-                with Verilog, baremetal C on HPS, and comprehensive verification
-                workflows.
-              </p>
-            </div>
-          </div>
+          <SpotifyNowPlaying />
         </>
       ),
     },

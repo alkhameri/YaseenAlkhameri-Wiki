@@ -8,33 +8,71 @@ export const projectsContent: JSONContent = {
   url: "/projects",
   sections: [
     {
-      title: "Compact RISC-V Core (Verilog)",
-      githubUrl: "https://github.com/alkhameri/riscv-core-verilog",
+      title: "Real-Time FPGA Matched-Filter Object Detector",
+      githubUrl: "https://github.com/EEC193-DigitalDesign/matched-filter",
       image: {
-        src: "/GDSLayout.png",
-        alt: "RISC-V core block diagram",
-        caption: "RV32I-style core: RTL → FPGA → OpenLane GDS",
+        src: "/matched-filter-overlay.png",
+        alt: "Matched-filter object detector debug overlay",
+        caption: "Template overlay generated for matched-filter hardware weights",
         position: ImagePosition.RIGHT,
       },
       description: (
         <>
-          Yaseen designed a compact, synthesizable RV32I-style
-          <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC‑V</a> core implemented in
-          <span> </span><a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>. The design contains a simple program counter, register
-          file, ALU, control unit, and synchronous instruction/data memories
-          designed to infer Intel M9K BRAMs. The repository includes
-          reusable RTL components (muxes, adders), a small testbench suite
-          compatible with <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer">ModelSim</a> <span> </span>and
-          <span> </span><a href="https://www.veripool.org/verilator/" target="_blank" rel="noopener noreferrer">Verilator</a>, and documentation for
-          Quartus-based FPGA builds.
+          Yaseen built a real-time <a href="https://en.wikipedia.org/wiki/Matched_filter" target="_blank" rel="noopener noreferrer">matched-filter</a>
+          <span> </span>object detector on the Terasic DE1-SoC using a D8M
+          camera input and <a href="https://en.wikipedia.org/wiki/Video_Graphics_Array" target="_blank" rel="noopener noreferrer">VGA</a>
+          <span> </span>output. The design processes a live video stream in
+          <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer"> Verilog</a>,
+          extracting a red-feature score from RGB pixels and feeding it
+          through streaming line buffers and template score logic.
           <br />
           <br />
-          Verification used directed testbenches and waveform inspection to
-          validate instruction execution. An <a href="https://openlane.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">OpenLane</a> flow was used to
-          generate a GDS II layout, demonstrating an end-to-end path from
-          RTL to a fabrication-ready layout.
+          The detector uses generated object templates and hardware
+          cross-correlation against stored weights. It includes full- and
+          half-resolution matched-filter cores, per-frame best-score tracking,
+          configurable thresholding, confidence reporting, and scale selection
+          for the winning detection.
+          <br />
+          <br />
+          The project also includes Python tooling for converting object
+          images into Verilog-ready template weights, debug artifacts such as
+          crops, masks, heatmaps, and overlays, and testbenches for the
+          feature extractor, stream delay engine, score tree, and detection
+          logic. VGA debug modes expose heatmaps, threshold masks, bounding-box
+          overlays, and confidence/threshold displays for hardware bring-up.
         </>
       ),
+      technologies:
+        "Verilog, SystemVerilog, Python, Quartus, ModelSim, DE1-SoC, D8M Camera, VGA, FPGA Video Pipelines",
+    },
+    {
+      title: "Compact RISC-V Core (Verilog)",
+      githubUrl: "https://github.com/alkhameri/riscv-core-verilog",
+      image: {
+        src: "/GDSLayout.png",
+        alt: "RISC-V core GDS layout",
+        caption: "RV32I-style core: RTL to FPGA to OpenLane GDS",
+        position: ImagePosition.LEFT,
+      },
+      description: (
+        <>
+          Yaseen designed a compact, synthesizable RV32I-style
+          <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC-V</a>
+          <span> </span>core implemented in <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>.
+          The design contains a program counter, register file, ALU, control
+          unit, and synchronous instruction/data memories designed to infer
+          Intel M9K BRAMs.
+          <br />
+          <br />
+          Verification used directed testbenches, waveform inspection,
+          <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer"> ModelSim</a>,
+          and <a href="https://www.veripool.org/verilator/" target="_blank" rel="noopener noreferrer">Verilator</a>.
+          An <a href="https://openlane.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">OpenLane</a>
+          <span> </span>flow generated a GDS II layout, demonstrating an
+          end-to-end path from RTL to a fabrication-oriented layout.
+        </>
+      ),
+      technologies: "Verilog, RISC-V, ModelSim, Verilator, Quartus, OpenLane",
     },
     {
       title: "RV32 Microkernel",
@@ -43,69 +81,25 @@ export const projectsContent: JSONContent = {
         src: "/kernel.png",
         alt: "RV32 Microkernel architecture",
         caption: "RV32 Microkernel: machine-mode boot, scheduler, and virtual memory",
-        position: ImagePosition.LEFT,
-      },
-      description: (
-        <>
-          Yaseen implemented a minimal but functional RISC-V RV32 microkernel
-          that boots in machine mode on <a href="https://www.qemu.org/" target="_blank" rel="noopener noreferrer">QEMU</a>'s virt platform.
-          The project demonstrates a complete bare-metal system including
-          hand-written entry and trap assembly, timer interrupts,
-          preemptive round-robin scheduling, kernel threads with dedicated
-          stacks, Sv32 virtual memory, a bump-based physical memory
-          allocator, synchronization primitives (spinlocks and semaphores),
-          and a timestamped UART logger. It includes a basic syscall
-          interface (ECALL-based yield) with cooperative and preemptive
-          scheduling demo threads.
-          <br />
-          <br />
-          The kernel showcases full register save/restore with trap frames,
-          a CLINT timer driver with 10 ms tick programming, automatic GP
-          setup for kernel threads, and an identity-mapped Sv32 page table.
-          The repository is suitable for exploration of bare-metal systems
-          and low-level RISC-V platform software.
-        </>
-      ),
-      technologies:
-        "RISC-V Assembly, C, QEMU, Machine-mode, Virtual Memory, Scheduling",
-    },
-    {
-      title: "Real-Time Hardware Video Processing System",
-      date: "In Progress",
-      image: {
-        src: "/altera.png",
-        alt: "Real-time hardware video processing system",
-        caption: "Real-time hardware video processing system on Terasic DE1-SoC",
         position: ImagePosition.RIGHT,
       },
       description: (
         <>
-          Yaseen developed a real-time hardware video processing system for
-          the Terasic DE1-SoC board using a D8M-GPIO camera and VGA video
-          interface. The project includes multiple video processing functions
-          implemented in <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>, with a focus on
-          pipelined architectures, memory management, and hardware
-          optimization.
+          Yaseen implemented a minimal but functional RISC-V RV32 microkernel
+          that boots in machine mode on <a href="https://www.qemu.org/" target="_blank" rel="noopener noreferrer">QEMU</a>'s
+          virt platform. The kernel includes hand-written entry and trap
+          assembly, timer interrupts, context switching, kernel threads with
+          dedicated stacks, and semaphore-based synchronization.
           <br />
           <br />
-          The system implements an "old film" effect processor using
-          grayscale conversion, random vertical black lines, random black
-          splotches, and original effects implemented with LFSR-based random
-          number generation. It also includes convolutional
-          2-dimensional blurring filters with 3×3 and 11×11 kernel sizes,
-          designed to process video at real-time frame rates.
-          <br />
-          <br />
-          The project emphasizes baremetal <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C</a> programming on the embedded HPS
-          processor for bit-accurate software implementations, alongside
-          comprehensive <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer">ModelSim</a> <span> </span>testbenches and
-          golden reference models. Design work includes detailed pipelined
-          block diagrams, timing analysis, arithmetic optimization, and
-          performance characterization through maximum clock rate,
-          throughput, and latency measurements.
+          The project demonstrates low-level platform work across
+          <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer"> C</a>,
+          RISC-V assembly, preemptive round-robin scheduling, and debugging
+          with a cross-compiled RV32 toolchain.
         </>
       ),
-      technologies: "Verilog, Quartus, ModelSim, DE1-SoC, VGA, D8M-GPIO, Baremetal C, HPS",
+      technologies:
+        "RISC-V Assembly, C, QEMU, Machine-mode, Trap Handling, Scheduling",
     },
     {
       title: "Hardware FIFO Design",
@@ -117,17 +111,40 @@ export const projectsContent: JSONContent = {
       },
       description: (
         <>
-          Yaseen designed a parameterized FIFO in <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a> using
-          dual-port M9K memory blocks on the DE10-Lite FPGA. He created read
-          and write modules operating at different clock frequencies to
-          demonstrate clock-domain crossing (CDC) data transfer and verified
-          functionality through <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer">ModelSim</a> <span> </span>simulations and Quartus synthesis results. The implementation uses a
-          circular FIFO architecture with full and empty condition detection
-          and was tested across multiple clock-domain scenarios.
+          Yaseen designed a parameterized FIFO in <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>
+          <span> </span>using dual-port M9K memory blocks on the DE10-Lite
+          FPGA. Read and write modules operated at different clock
+          frequencies to demonstrate <a href="https://en.wikipedia.org/wiki/Clock_domain_crossing" target="_blank" rel="noopener noreferrer">clock-domain crossing</a>
+          <span> </span>data transfer.
+          <br />
+          <br />
+          The implementation uses a circular FIFO architecture with full and
+          empty condition detection and was verified through
+          <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer"> ModelSim</a>
+          <span> </span>simulations and Quartus synthesis results.
         </>
       ),
       technologies:
         "Verilog, ModelSim, Quartus, DE10-Lite, M9K Memory, Clock Domain Crossing",
+    },
+    {
+      title: "Planck ZMK Keyboard Firmware",
+      githubUrl: "https://github.com/alkhameri/zmk-config",
+      description: (
+        <>
+          Yaseen maintains a <a href="https://zmk.dev/" target="_blank" rel="noopener noreferrer">ZMK</a>
+          <span> </span>configuration for a Planck Rev6 keyboard. The keymap
+          defines default, lower, raise, and mouse layers with media controls,
+          bootloader/reset bindings, scroll controls, and pointer movement.
+          <br />
+          <br />
+          The repository includes a GitHub Actions build matrix for the
+          <a href="https://olkb.com/products/planck" target="_blank" rel="noopener noreferrer"> Planck</a>
+          <span> </span>target and is mostly a fun side project for personal
+          keyboard bindings.
+        </>
+      ),
+      technologies: "ZMK, Zephyr, Device Tree, Keyboard Firmware, GitHub Actions",
     },
     {
       title: "FPGA Dice Game",
@@ -139,13 +156,12 @@ export const projectsContent: JSONContent = {
       },
       description: (
         <>
-          Yaseen implemented Moore and Mealy finite state machine
-          representations of a dice game using RTL and block schematics.
-          He applied sequential network design through implementation of
-          counters and memory and verified the design using <span> </span>
-          <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a> <span> </span>testbenches and
-          <span> </span><a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer">ModelSim</a>, then demonstrated the design on the
-          DE10-Lite FPGA.
+          Yaseen implemented Moore and Mealy finite-state-machine
+          representations of a dice game using RTL and block schematics. He
+          applied sequential network design through counters and memory,
+          verified the design with <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>
+          <span> </span>testbenches and <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer">ModelSim</a>,
+          and demonstrated the design on the DE10-Lite FPGA.
         </>
       ),
       technologies: "Verilog, ModelSim, Quartus, DE10-Lite, FSM Design",
@@ -157,12 +173,13 @@ export const projectsContent: JSONContent = {
         <>
           Built during AgentHacks with teammates, dExtra Tools extends the
           Dex browser agent by adding a Working Memory system, a Planning
-          Agent, and a Frontend-WebSocket bridge (get_selected_text). The
-          system integrates with an MCP backend and enables deeper, real-time
-          browser interaction for agent workflows. Won Dex Best Browser Agent
-          at AgentHacks.
+          Agent, and a Frontend-WebSocket bridge for selected-text context.
+          The system integrates with an MCP backend and enables deeper,
+          real-time browser interaction for agent workflows. The project won
+          Dex Best Browser Agent at AgentHacks.
         </>
       ),
+      technologies: "Browser Agents, MCP, WebSocket, TypeScript, AgentHacks",
     },
     {
       title: "AggieShare - HackDavis 2025",

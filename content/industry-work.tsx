@@ -9,35 +9,63 @@ export const industryWorkContent: JSONContent = {
     "This article covers the professional work experience of Yaseen Alkhameri. For personal projects, see the Projects page.",
   sections: [
     {
-      title: "Firmware Engineering Intern - AIVision Food",
-      date: "June 2025 - Present",
+      title: "Incoming Product Development Engineering Intern - Solidigm",
+      date: "June 2026 - September 2026",
+      websiteUrl: "https://www.solidigm.com/",
       description: (
         <>
-          Yaseen contributes to the development of an IoT environmental
-          monitoring system built on the <a href="https://zephyrproject.org/" target="_blank" rel="noopener noreferrer">Zephyr RTOS</a> at AIVision Food in Davis, CA.
+          Yaseen will join <a href="https://www.solidigm.com/" target="_blank" rel="noopener noreferrer">Solidigm</a>
+          <span> </span>as a Product Development Engineering Intern during
+          summer 2026. The role aligns with his interests in hardware
+          validation, product development, memory systems, and the bridge
+          between silicon, firmware, and system-level reliability.
           <br />
           <br />
-          Yaseen designed and optimized firmware for <a href="https://en.wikipedia.org/wiki/Bluetooth_Low_Energy" target="_blank" rel="noopener noreferrer">Bluetooth Low Energy (BLE)</a> data
-          transmission, ensuring low-power operation and reliable
-          sensor-to-gateway connectivity. He worked with Nordic <a href="https://www.nordicsemi.com/Products/nRF52840" target="_blank" rel="noopener noreferrer">nRF52840</a> devices and <a href="https://en.wikipedia.org/wiki/ESP32" target="_blank" rel="noopener noreferrer">ESP32</a> modules, focusing on baremetal <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C </a>
-          programming, RTOS task management,
-          and hardware bring-up workflows. The work included BLE connection
-          management, low-power tuning for BLE advertising and connection
-          intervals, and device firmware updates.
+          Solidigm is a storage company focused on <a href="https://en.wikipedia.org/wiki/Solid-state_drive" target="_blank" rel="noopener noreferrer">solid-state drives</a>
+          <span> </span>and <a href="https://en.wikipedia.org/wiki/Flash_memory" target="_blank" rel="noopener noreferrer">NAND flash memory</a> products for client,
+          data-center, and enterprise systems.
+        </>
+      ),
+      image: {
+        src: "/solidigm.jpg",
+        alt: "Solidigm logo",
+        caption: "Solidigm",
+        position: ImagePosition.LEFT,
+      },
+    },
+    {
+      title: "Firmware Engineering Intern - AIVision Food",
+      date: "June 2025 - May 2026",
+      websiteUrl: "https://www.aivisionfood.com/",
+      description: (
+        <>
+          Yaseen contributed to the development of an IoT environmental
+          monitoring system built on the <a href="https://zephyrproject.org/" target="_blank" rel="noopener noreferrer">Zephyr RTOS</a>
+          <span> </span>at AIVision Food in Davis, CA.
           <br />
           <br />
-          Yaseen collaborated with international team members, including
-          manufacturing partners in <a href="https://en.wikipedia.org/wiki/China" target="_blank" rel="noopener noreferrer">China</a>, to support production, firmware
-          certification, and global deployment logistics. He assisted with hardware
-          debugging, validation, and integration of camera and sensor
-          subsystems for production deployment.
+          He implemented event-driven <a href="https://en.wikipedia.org/wiki/Bluetooth_Low_Energy" target="_blank" rel="noopener noreferrer">Bluetooth Low Energy</a>
+          <span> </span>communication and optimized memory-constrained data
+          paths for low-power operation. The work used Nordic
+          <span> </span><a href="https://www.nordicsemi.com/Products/nRF52840" target="_blank" rel="noopener noreferrer">nRF52</a>
+          <span> </span>devices, <a href="https://en.wikipedia.org/wiki/ESP32" target="_blank" rel="noopener noreferrer">ESP32</a>
+          <span> </span>modules, and bare-metal/RTOS-oriented
+          <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer"> C</a> firmware.
+          <br />
+          <br />
+          He debugged low-power firmware behavior with the
+          <a href="https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2" target="_blank" rel="noopener noreferrer"> Nordic PPK2</a>,
+          using current profiling to identify leakage-current issues and
+          validate reduced standby power. He also assisted with hardware
+          bring-up, debugging, and validation workflows for embedded
+          production platforms.
         </>
       ),
       image: {
         src: "/aivisionfood.png",
         alt: "AIVision Food SmartProbe",
         caption: "AIVision Food - SmartProbe",
-        position: ImagePosition.LEFT,
+        position: ImagePosition.RIGHT,
       },
     },
   ],
