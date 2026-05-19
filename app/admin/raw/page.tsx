@@ -1,6 +1,11 @@
 import AdminPageLayout from "@/components/admin/AdminPageLayout";
 import AdminArticleHeader from "@/components/admin/AdminArticleHeader";
+import AdminSetupNotice from "@/components/admin/AdminSetupNotice";
 import { getRawEvents } from "@/lib/admin/queries";
+import {
+  adminErrorMessage,
+  isMissingSupabaseFunctionError,
+} from "@/lib/admin/errors";
 import { hasSupabaseConfig } from "@/lib/env";
 
 export const dynamic = "force-dynamic";
@@ -38,7 +43,23 @@ export default async function AdminRawPage() {
       </AdminPageLayout>
     );
   }
-  const events = await getRawEvents(100);
+  let events: Awaited<ReturnType<typeof getRawEvents>>;
+  try {
+    events = await getRawEvents(100);
+  } catch (error) {
+    if (!isMissingSupabaseFunctionError(error)) throw error;
+    return (
+      <AdminPageLayout currentWindow="30d">
+        <AdminArticleHeader title="alkhameri.com" activeTab="raw" />
+        <article className="px-4 sm:px-6 py-4 text-[#202122]">
+          <AdminSetupNotice
+            compact
+            errorMessage={adminErrorMessage(error)}
+          />
+        </article>
+      </AdminPageLayout>
+    );
+  }
 
   return (
     <AdminPageLayout currentWindow="30d">

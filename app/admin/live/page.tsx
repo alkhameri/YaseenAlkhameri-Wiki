@@ -1,7 +1,12 @@
 import AdminPageLayout from "@/components/admin/AdminPageLayout";
 import AdminArticleHeader from "@/components/admin/AdminArticleHeader";
+import AdminSetupNotice from "@/components/admin/AdminSetupNotice";
 import LiveVisitorsTable from "@/components/admin/LiveVisitorsTable";
 import { getLiveVisitors } from "@/lib/admin/queries";
+import {
+  adminErrorMessage,
+  isMissingSupabaseFunctionError,
+} from "@/lib/admin/errors";
 import { hasSupabaseConfig } from "@/lib/env";
 
 export const dynamic = "force-dynamic";
@@ -19,7 +24,23 @@ export default async function AdminLivePage() {
       </AdminPageLayout>
     );
   }
-  const initial = await getLiveVisitors();
+  let initial: Awaited<ReturnType<typeof getLiveVisitors>>;
+  try {
+    initial = await getLiveVisitors();
+  } catch (error) {
+    if (!isMissingSupabaseFunctionError(error)) throw error;
+    return (
+      <AdminPageLayout currentWindow="30d">
+        <AdminArticleHeader title="alkhameri.com" activeTab="live" />
+        <article className="px-4 sm:px-6 py-4 text-[#202122]">
+          <AdminSetupNotice
+            compact
+            errorMessage={adminErrorMessage(error)}
+          />
+        </article>
+      </AdminPageLayout>
+    );
+  }
   return (
     <AdminPageLayout currentWindow="30d">
       <AdminArticleHeader title="alkhameri.com" activeTab="live" />

@@ -2,6 +2,7 @@ import Link from "next/link";
 import AdminPageLayout from "@/components/admin/AdminPageLayout";
 import AdminArticleHeader from "@/components/admin/AdminArticleHeader";
 import Infobox from "@/components/admin/Infobox";
+import AdminSetupNotice from "@/components/admin/AdminSetupNotice";
 import TableOfContents from "@/components/admin/TableOfContents";
 import RefreshButton from "@/components/admin/RefreshButton";
 import LeadSection from "@/components/admin/sections/LeadSection";
@@ -31,6 +32,10 @@ import {
   getPerformance,
   getJsErrors,
 } from "@/lib/admin/queries";
+import {
+  adminErrorMessage,
+  isMissingSupabaseFunctionError,
+} from "@/lib/admin/errors";
 
 export const dynamic = "force-dynamic";
 
@@ -57,7 +62,25 @@ export default async function AdminDashboardPage({ searchParams }: Props) {
     );
   }
 
-  const [
+  let dashboardData: Awaited<
+    ReturnType<typeof loadDashboardData>
+  >;
+
+  try {
+    dashboardData = await loadDashboardData(window);
+  } catch (error) {
+    if (!isMissingSupabaseFunctionError(error)) throw error;
+    return (
+      <AdminPageLayout currentWindow={window.value as WindowValue}>
+        <AdminArticleHeader title="alkhameri.com" activeTab="dashboard" />
+        <article className="px-4 sm:px-6 py-4 text-[#202122] max-w-none">
+          <AdminSetupNotice errorMessage={adminErrorMessage(error)} />
+        </article>
+      </AdminPageLayout>
+    );
+  }
+
+  const {
     summary,
     daily,
     topPages,
@@ -71,21 +94,7 @@ export default async function AdminDashboardPage({ searchParams }: Props) {
     scroll,
     perf,
     errors,
-  ] = await Promise.all([
-    getSummary(window),
-    getDailyPageviews(window),
-    getTopPages(window),
-    getTopReferrers(window),
-    getTopSearches(window),
-    getTopOutbound(window),
-    getTopCountries(window),
-    getDevices(window),
-    getBrowsers(window),
-    getOperatingSystems(window),
-    getScrollDepth(window),
-    getPerformance(window),
-    getJsErrors(window),
-  ]);
+  } = dashboardData;
 
   return (
     <AdminPageLayout currentWindow={window.value as WindowValue}>
@@ -137,4 +146,52 @@ export default async function AdminDashboardPage({ searchParams }: Props) {
       </article>
     </AdminPageLayout>
   );
+}
+
+async function loadDashboardData(window: ReturnType<typeof parseWindow>) {
+  const [
+    summary,
+    daily,
+    topPages,
+    referrers,
+    searches,
+    outbound,
+    countries,
+    devices,
+    browsers,
+    os,
+    scroll,
+    perf,
+    errors,
+  ] = await Promise.all([
+    getSummary(window),
+    getDailyPageviews(window),
+    getTopPages(window),
+    getTopReferrers(window),
+    getTopSearches(window),
+    getTopOutbound(window),
+    getTopCountries(window),
+    getDevices(window),
+    getBrowsers(window),
+    getOperatingSystems(window),
+    getScrollDepth(window),
+    getPerformance(window),
+    getJsErrors(window),
+  ]);
+
+  return {
+    summary,
+    daily,
+    topPages,
+    referrers,
+    searches,
+    outbound,
+    countries,
+    devices,
+    browsers,
+    os,
+    scroll,
+    perf,
+    errors,
+  };
 }
