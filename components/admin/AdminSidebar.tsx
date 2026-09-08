@@ -44,6 +44,9 @@ export default function AdminSidebar({ currentWindow = "30d" }: AdminSidebarProp
               Admin tools
             </h3>
             <div className="space-y-1">
+              <Link href="/admin/banner" className="block text-blue-600 hover:underline">
+                Article of the day
+              </Link>
               <Link
                 href="/admin/raw"
                 className="block text-blue-600 hover:underline"

@@ -21,25 +21,12 @@ export const projectsContent: JSONContent = {
           Yaseen built a real-time <a href="https://en.wikipedia.org/wiki/Matched_filter" target="_blank" rel="noopener noreferrer">matched-filter</a>
           <span> </span>object detector on the Terasic DE1-SoC using a D8M
           camera input and <a href="https://en.wikipedia.org/wiki/Video_Graphics_Array" target="_blank" rel="noopener noreferrer">VGA</a>
-          <span> </span>output. The design processes a live video stream in
-          <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer"> Verilog</a>,
-          extracting a red-feature score from RGB pixels and feeding it
-          through streaming line buffers and template score logic.
-          <br />
-          <br />
-          The detector uses generated object templates and hardware
-          cross-correlation against stored weights. It includes full- and
-          half-resolution matched-filter cores, per-frame best-score tracking,
-          configurable thresholding, confidence reporting, and scale selection
-          for the winning detection.
-          <br />
-          <br />
-          The project also includes Python tooling for converting object
-          images into Verilog-ready template weights, debug artifacts such as
-          crops, masks, heatmaps, and overlays, and testbenches for the
-          feature extractor, stream delay engine, score tree, and detection
-          logic. VGA debug modes expose heatmaps, threshold masks, bounding-box
-          overlays, and confidence/threshold displays for hardware bring-up.
+          <span> </span>output. Its Verilog pipeline combines streaming line
+          buffers, matched-filter cores, and hardware cross-correlation against
+          custom template weights generated in Python. VGA debug modes show
+          heatmaps, threshold masks, bounding boxes, and confidence scores;
+          testbenches verify feature extraction, stream delays, scoring, and
+          detection logic.
         </>
       ),
       technologies:
@@ -59,17 +46,13 @@ export const projectsContent: JSONContent = {
           Yaseen designed a compact, synthesizable RV32I-style
           <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC-V</a>
           <span> </span>core implemented in <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>.
-          The design contains a program counter, register file, ALU, control
-          unit, and synchronous instruction/data memories designed to infer
-          Intel M9K BRAMs.
-          <br />
-          <br />
-          Verification used directed testbenches, waveform inspection,
-          <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer"> ModelSim</a>,
-          and <a href="https://www.veripool.org/verilator/" target="_blank" rel="noopener noreferrer">Verilator</a>.
-          An <a href="https://openlane.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">OpenLane</a>
-          <span> </span>flow generated a GDS II layout, demonstrating an
-          end-to-end path from RTL to a fabrication-oriented layout.
+          It includes a program counter, register file, ALU, control unit, and
+          synchronous instruction/data memories targeting Intel M9K BRAMs.
+          He verified functionality with Verilog and C/C++ testbenches in
+          ModelSim and Verilator, then used
+          <a href="https://openlane.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer"> OpenLane</a>
+          <span> </span>for ASIC synthesis, floorplanning, placement, clock-tree
+          synthesis, routing, and timing closure through GDS II generation.
         </>
       ),
       technologies: "Verilog, RISC-V, ModelSim, Verilator, Quartus, OpenLane",
@@ -90,12 +73,10 @@ export const projectsContent: JSONContent = {
           virt platform. The kernel includes hand-written entry and trap
           assembly, timer interrupts, context switching, kernel threads with
           dedicated stacks, and semaphore-based synchronization.
-          <br />
-          <br />
-          The project demonstrates low-level platform work across
-          <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer"> C</a>,
-          RISC-V assembly, preemptive round-robin scheduling, and debugging
-          with a cross-compiled RV32 toolchain.
+          Written in
+          <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer"> C</a>{" "}
+          and RISC-V assembly, it uses a preemptive round-robin scheduler and
+          was booted and debugged with a cross-compiled RV32 toolchain.
         </>
       ),
       technologies:
@@ -116,8 +97,6 @@ export const projectsContent: JSONContent = {
           FPGA. Read and write modules operated at different clock
           frequencies to demonstrate <a href="https://en.wikipedia.org/wiki/Clock_domain_crossing" target="_blank" rel="noopener noreferrer">clock-domain crossing</a>
           <span> </span>data transfer.
-          <br />
-          <br />
           The implementation uses a circular FIFO architecture with full and
           empty condition detection and was verified through
           <a href="https://www.mentor.com/products/fv/modelsim/" target="_blank" rel="noopener noreferrer"> ModelSim</a>
@@ -136,8 +115,6 @@ export const projectsContent: JSONContent = {
           <span> </span>configuration for a Planck Rev6 keyboard. The keymap
           defines default, lower, raise, and mouse layers with media controls,
           bootloader/reset bindings, scroll controls, and pointer movement.
-          <br />
-          <br />
           The repository includes a GitHub Actions build matrix for the
           <a href="https://olkb.com/products/planck" target="_blank" rel="noopener noreferrer"> Planck</a>
           <span> </span>target and is mostly a fun side project for personal

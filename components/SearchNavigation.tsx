@@ -93,7 +93,7 @@ export default function SearchNavigation() {
   };
 
   return (
-    <div className="flex items-center gap-2 flex-1 max-w-md mx-4 sm:mx-8">
+    <div className="flex items-center gap-2 flex-1 max-w-md">
       <div className="flex-1 relative">
         <input
           type="text"

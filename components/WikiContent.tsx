@@ -277,7 +277,7 @@ function WikiSection({
     <div className="mb-4 first:mt-0">
       {section.title && (
         <div
-          className={`mb-2 ${level === 2 ? "border-b border-gray-300 pb-1" : level === 3 ? "border-b border-gray-200 pb-1" : ""} flex justify-between items-baseline`}
+          className={`mb-2 ${level === 2 ? "border-b border-gray-300 pb-1" : level === 3 ? "border-b border-gray-200 pb-1" : ""} flex flex-col gap-1 sm:flex-row sm:justify-between sm:items-baseline sm:gap-3`}
         >
           <HeadingTag
             id={id}
@@ -291,7 +291,7 @@ function WikiSection({
           >
             {section.title}
           </HeadingTag>
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             {section.githubUrl && (
               <a
                 href={section.githubUrl}
@@ -331,9 +331,9 @@ function WikiSection({
 
       {section.image ? (
         <div
-          className={`flex gap-4 ${section.image.position === ImagePosition.LEFT ? "flex-row-reverse" : "flex-row"}`}
+          className={`flex flex-col gap-4 ${section.image.position === ImagePosition.LEFT ? "sm:flex-row-reverse" : "sm:flex-row"}`}
         >
-          <div className="flex-1 space-y-2">
+          <div className="min-w-0 flex-1 space-y-2">
             {/* Description with JSX formatting */}
             <div className="text-gray-900 leading-relaxed text-sm">
               <ParsedContent>{section.description}</ParsedContent>

@@ -9,23 +9,22 @@ export const industryWorkContent: JSONContent = {
     "This article covers the professional work experience of Yaseen Alkhameri. For personal projects, see the Projects page.",
   sections: [
     {
-      title: "Incoming Product Development Engineering Intern - Solidigm",
+      title: "Product Development Engineering Intern - Solidigm",
       date: "June 2026 - September 2026",
       websiteUrl: "https://www.solidigm.com/",
       description: (
         <>
-          Yaseen will join <a href="https://www.solidigm.com/" target="_blank" rel="noopener noreferrer">Solidigm</a>
-          <span> </span>as a Product Development Engineering Intern during
-          summer 2026. The role aligns with his interests in hardware
-          validation, product development, memory systems, and the bridge
-          between silicon, firmware, and system-level reliability.
-          <br />
-          <br />
-          Solidigm is a storage company focused on <a href="https://en.wikipedia.org/wiki/Solid-state_drive" target="_blank" rel="noopener noreferrer">solid-state drives</a>
-          <span> </span>and <a href="https://en.wikipedia.org/wiki/Flash_memory" target="_blank" rel="noopener noreferrer">NAND flash memory</a> products for client,
-          data-center, and enterprise systems.
+          On <a href="https://www.solidigm.com/" target="_blank" rel="noopener noreferrer">Solidigm</a>&apos;s
+          data-center SSD Systems Integration team, Yaseen developed Python
+          tooling to reconcile firmware-release evidence across more than 600
+          tracked issues, flagging ambiguous cases for engineering review. He
+          also built analysis tools to identify obsolete and redundant firmware
+          configuration rules across product variants, and extended internal
+          release-tracking workflows. His work supported engineers coordinating
+          dependencies across SoC, firmware, hardware, NAND, and validation.
         </>
       ),
+      technologies: "Python, REST APIs, SSD Firmware Releases, Configuration Management, Systems Integration",
       image: {
         src: "/solidigm.jpg",
         alt: "Solidigm logo",
@@ -39,28 +38,18 @@ export const industryWorkContent: JSONContent = {
       websiteUrl: "https://www.aivisionfood.com/",
       description: (
         <>
-          Yaseen contributed to the development of an IoT environmental
-          monitoring system built on the <a href="https://zephyrproject.org/" target="_blank" rel="noopener noreferrer">Zephyr RTOS</a>
-          <span> </span>at AIVision Food in Davis, CA.
-          <br />
-          <br />
-          He implemented event-driven <a href="https://en.wikipedia.org/wiki/Bluetooth_Low_Energy" target="_blank" rel="noopener noreferrer">Bluetooth Low Energy</a>
-          <span> </span>communication and optimized memory-constrained data
-          paths for low-power operation. The work used Nordic
-          <span> </span><a href="https://www.nordicsemi.com/Products/nRF52840" target="_blank" rel="noopener noreferrer">nRF52</a>
-          <span> </span>devices, <a href="https://en.wikipedia.org/wiki/ESP32" target="_blank" rel="noopener noreferrer">ESP32</a>
-          <span> </span>modules, and bare-metal/RTOS-oriented
-          <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer"> C</a> firmware.
-          <br />
-          <br />
-          He debugged low-power firmware behavior with the
+          At AIVision Food in Davis, Yaseen contributed C firmware to an IoT
+          environmental monitoring system using <a href="https://zephyrproject.org/" target="_blank" rel="noopener noreferrer">Zephyr RTOS</a>,
+          Nordic nRF52, and ESP32 platforms. He implemented event-driven
+          Bluetooth Low Energy communication, optimized memory-constrained data
+          paths, and used the
           <a href="https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2" target="_blank" rel="noopener noreferrer"> Nordic PPK2</a>,
-          using current profiling to identify leakage-current issues and
-          validate reduced standby power. He also assisted with hardware
-          bring-up, debugging, and validation workflows for embedded
-          production platforms.
+          profiling current to identify leakage and validate reduced standby
+          power. He also assisted with hardware bring-up, debugging, and
+          validation of embedded platforms.
         </>
       ),
+      technologies: "C, Zephyr RTOS, Bluetooth Low Energy, Nordic nRF52, ESP32, Nordic PPK2",
       image: {
         src: "/aivisionfood.png",
         alt: "AIVision Food SmartProbe",

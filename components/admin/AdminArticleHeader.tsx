@@ -3,13 +3,14 @@ import Link from "next/link";
 interface AdminArticleHeaderProps {
   title: string;
   subtitle?: string;
-  activeTab?: "dashboard" | "raw" | "live";
+  activeTab?: "dashboard" | "raw" | "live" | "banner";
 }
 
 const tabs = [
   { key: "dashboard", label: "Dashboard", href: "/admin" },
   { key: "raw", label: "Raw data", href: "/admin/raw" },
   { key: "live", label: "Live", href: "/admin/live" },
+  { key: "banner", label: "Article of the day", href: "/admin/banner" },
 ] as const;
 
 export default function AdminArticleHeader({
@@ -34,7 +35,7 @@ export default function AdminArticleHeader({
 
       <div className="text-sm text-gray-600 mb-4 italic">{subtitle}</div>
 
-      <div className="flex items-center gap-6 border-b border-gray-300 text-sm">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-gray-300 text-sm">
         {tabs.map((t) => (
           <Link
             key={t.key}
