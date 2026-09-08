@@ -32,3 +32,18 @@ The public header uses the default rotation if the database is unavailable;
 the editor reports connection/setup errors without overwriting the saved list.
 The banner and short career descriptions were adapted from the current
 [AneeshKumar-Wiki](https://github.com/aneesh6214/AneeshKumar-Wiki) design.
+
+## Wiki layout and AMA
+
+The public layout follows the upstream wiki's fixed header, Pages and This
+Article sidebar, profile infobox, project catalogue, and career timeline.
+`/career` includes the existing professional experience; `/industry-work`
+permanently redirects there, preserving old links. Existing projects, blog,
+contact information, education, skills, and collections remain available.
+
+Apply `supabase/migrations/0004_ama_questions.sql` to enable `/ama`. Visitors
+can submit anonymous questions. Sign in and open `/admin/ama` to publish or
+edit answers and archive questions. Unanswered and archived questions are
+never included in the public archive. Archiving retains the database row.
+The admin page and each moderation action verify the administrator session.
+Both pages display an unavailable/setup message if Supabase is not ready.

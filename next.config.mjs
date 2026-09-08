@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [{ source: '/industry-work', destination: '/career', permanent: true }]
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },

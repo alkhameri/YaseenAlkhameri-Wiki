@@ -7,7 +7,7 @@ export default async function WikipediaStyleKB() {
   const content = await getJSONContent("home");
 
   return (
-    <PageLayout currentPath="/">
+    <PageLayout currentPath="/" content={content}>
       <ArticleHeader title={content.title} />
       <WikiContent content={content} />
     </PageLayout>

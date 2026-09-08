@@ -50,15 +50,15 @@ export default function ArticleOfTheDay() {
 
   return (
     <div className="min-w-0" aria-label="Article of the day">
-      <div className="flex flex-wrap items-baseline gap-x-1.5 text-sm sm:text-base">
-        <span className="shrink-0 font-serif text-[#202122]">Article of the day:</span>
+      <div className="flex min-w-0 items-center gap-1 text-base leading-[18px]">
+        <span className="shrink-0 font-serif text-[#202122]">Article of the Day:</span>
         {article ? (
-          <a href={article.url} target="_blank" rel="noopener noreferrer" className="min-w-0 break-words" title={`Read ${article.title} on Wikipedia`}>
+          <a href={article.url} target="_blank" rel="noopener noreferrer" className="min-w-0 truncate text-blue-700" title={`Read ${article.title} on Wikipedia`}>
             {article.title}
           </a>
         ) : <span className="text-sm text-gray-500">Loading…</span>}
       </div>
-      <p className="mt-0.5 text-[11px] italic text-gray-500">Yaseen&apos;s picks · From Wikipedia</p>
+      <p className="mt-0.5 text-[11px] italic leading-[11px] text-gray-500">Yaseen&apos;s pick</p>
     </div>
   );
 }

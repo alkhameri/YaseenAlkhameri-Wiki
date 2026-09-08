@@ -1,3 +1,4 @@
+import React from "react";
 import { ImagePosition, JSONContent } from "@/lib/json-content";
 
 export const industryWorkContent: JSONContent = {

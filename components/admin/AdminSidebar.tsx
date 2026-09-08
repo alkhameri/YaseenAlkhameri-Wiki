@@ -47,6 +47,9 @@ export default function AdminSidebar({ currentWindow = "30d" }: AdminSidebarProp
               <Link href="/admin/banner" className="block text-blue-600 hover:underline">
                 Article of the day
               </Link>
+              <Link href="/admin/ama" className="block text-blue-600 hover:underline">
+                Questions &amp; answers
+              </Link>
               <Link
                 href="/admin/raw"
                 className="block text-blue-600 hover:underline"

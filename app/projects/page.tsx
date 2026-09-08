@@ -1,15 +1,15 @@
 import PageLayout from "@/components/PageLayout";
 import ArticleHeader from "@/components/ArticleHeader";
-import WikiContent from "@/components/WikiContent";
+import WorkCatalogueContent from "@/components/WorkCatalogueContent";
 import { getJSONContent } from "@/lib/json-content";
 
 export default async function ProjectsPage() {
   const content = await getJSONContent("projects");
 
   return (
-    <PageLayout currentPath="/projects">
+    <PageLayout currentPath="/projects" content={content}>
       <ArticleHeader title={content.title} />
-      <WikiContent content={content} />
+      <WorkCatalogueContent content={content} />
     </PageLayout>
   );
 }

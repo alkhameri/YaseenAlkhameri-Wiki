@@ -3,7 +3,7 @@ import Link from "next/link";
 interface AdminArticleHeaderProps {
   title: string;
   subtitle?: string;
-  activeTab?: "dashboard" | "raw" | "live" | "banner";
+  activeTab?: "dashboard" | "raw" | "live" | "banner" | "ama";
 }
 
 const tabs = [
@@ -11,6 +11,7 @@ const tabs = [
   { key: "raw", label: "Raw data", href: "/admin/raw" },
   { key: "live", label: "Live", href: "/admin/live" },
   { key: "banner", label: "Article of the day", href: "/admin/banner" },
+  { key: "ama", label: "AMA", href: "/admin/ama" },
 ] as const;
 
 export default function AdminArticleHeader({

@@ -1,21 +1,14 @@
 import PageLayout from "@/components/PageLayout";
 import BlogList from "@/components/BlogList";
 import { getAllBlogPosts } from "@/lib/blog-content";
+import ArticleHeader from "@/components/ArticleHeader";
 
 export default async function BlogPage() {
   const posts = await getAllBlogPosts();
 
   return (
     <PageLayout currentPath="/blog">
-      <div className="px-4 sm:px-6 pt-4">
-        <div className="flex items-center justify-between mb-2">
-          <h1 className="text-2xl sm:text-3xl font-serif text-black">Blog</h1>
-        </div>
-        <div className="text-sm text-gray-600 mb-4">
-          From Wikipedia, the free encyclopedia
-        </div>
-      </div>
-
+      <ArticleHeader title="Blog" />
       <BlogList posts={posts} />
     </PageLayout>
   );

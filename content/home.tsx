@@ -1,6 +1,6 @@
 import React from "react";
 import { JSONContent } from "@/lib/json-content";
-import SpotifyNowPlaying from "@/components/SpotifyNowPlaying";
+import { yaseenInfobox } from "./profile-infobox";
 
 export const homeContent: JSONContent = {
   title: "Yaseen Alkhameri",
@@ -9,33 +9,13 @@ export const homeContent: JSONContent = {
   url: "/",
   disambiguation:
     "This article is about the hardware engineer. For his technical blog, see [Yaseen Alkhameri (blog)](/blog).",
-  infobox: {
-    image: "/profile-photo.png",
-    imageCaption: "Yaseen Alkhameri in 2025",
-    fields: [
-      {
-        label: "Born",
-        value: "Yaseen Alkhameri\nMay 25, 2004\nOakland, California, U.S.",
-      },
-      { label: "Location", value: "San Francisco Bay Area" },
-      {
-        label: "Position",
-        value:
-          "Product Development Engineering Intern @ [Solidigm](https://www.solidigm.com/)\nJune – September 2026",
-      },
-      {
-        label: "University",
-        value:
-          "[University of California, Davis](https://www.ucdavis.edu/)",
-      },
-    ],
-  },
+  infobox: yaseenInfobox,
   sections: [
     {
       title: "Overview",
       description: (
         <>
-          <strong>Yaseen Alkhameri</strong> is a computer engineering student
+          Yaseen Alkhameri is a computer engineering student
           at <a href="https://www.ucdavis.edu/" target="_blank" rel="noopener noreferrer">UC Davis</a> focused on
           <span> </span><a href="https://en.wikipedia.org/wiki/Register-transfer_level" target="_blank" rel="noopener noreferrer">RTL</a> design,
           embedded firmware, and digital verification. His work spans
@@ -43,8 +23,6 @@ export const homeContent: JSONContent = {
           synthesizable <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>,
           bare-metal <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C</a>, and
           <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC-V</a> systems.
-          <br />
-          <br />
           His experience includes embedded firmware at AIVision Food and
           data-center SSD systems integration at <a href="https://www.solidigm.com/" target="_blank" rel="noopener noreferrer">Solidigm</a>,
           where he developed tooling for firmware-release analysis and
@@ -61,6 +39,17 @@ export const homeContent: JSONContent = {
         </>
       ),
     },
+    {
+      title: "",
+      variant: "home-role-focus",
+      hideFromArticleNav: true,
+      roleFocusItems: [
+        { role: "Hardware", statement: "RTL design, FPGA prototyping, and digital verification.", seeAlso: { href: "/projects", label: "Projects" } },
+        { role: "Firmware", statement: "Embedded C, Zephyr RTOS, and RISC-V systems.", seeAlso: { href: "/career", label: "Career" } },
+        { role: "Systems", statement: "Computer architecture, memory, and hardware–software integration.", seeAlso: { href: "/#education", label: "Education" } },
+      ],
+    },
+    { title: "", variant: "home-activity-grid", hideFromArticleNav: true },
     {
       title: "Education",
       date: "Expected December 2026",
@@ -97,14 +86,6 @@ export const homeContent: JSONContent = {
             <dd>English, Mandarin Chinese, Arabic</dd>
           </div>
         </dl>
-      ),
-    },
-    {
-      title: "",
-      description: (
-        <>
-          <SpotifyNowPlaying />
-        </>
       ),
     },
   ],

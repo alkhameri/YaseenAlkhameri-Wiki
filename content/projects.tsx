@@ -1,11 +1,15 @@
 import React from "react";
 import { JSONContent, ImagePosition } from "@/lib/json-content";
+import { yaseenInfobox } from "./profile-infobox";
 
 export const projectsContent: JSONContent = {
   title: "Projects",
   subtitle: "Portfolio and Work",
   description: "Collection of personal and professional projects",
   url: "/projects",
+  disambiguation: "This article covers independent technical projects by [Yaseen Alkhameri](/). For employment, see [Yaseen Alkhameri (Career)](/career).",
+  infobox: yaseenInfobox,
+  infoboxTitle: "Yaseen Alkhameri",
   sections: [
     {
       title: "Real-Time FPGA Matched-Filter Object Detector",
