@@ -8,7 +8,7 @@ export default async function BlogPage() {
 
   return (
     <PageLayout currentPath="/blog">
-      <ArticleHeader title="Blog" />
+      <ArticleHeader title="Blog" showTabs={false} />
       <BlogList posts={posts} />
     </PageLayout>
   );

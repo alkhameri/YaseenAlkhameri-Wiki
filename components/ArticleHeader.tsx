@@ -2,9 +2,10 @@ import { ArticleSourceLine, ArticleTabs } from "./WikiPrimitives";
 
 interface ArticleHeaderProps {
   title: string;
+  showTabs?: boolean;
 }
 
-export default function ArticleHeader({ title }: ArticleHeaderProps) {
+export default function ArticleHeader({ title, showTabs = true }: ArticleHeaderProps) {
   return (
     <div className="px-4 sm:px-6 pt-4">
       <div className="flex items-start justify-between gap-4 mb-2">
@@ -15,7 +16,7 @@ export default function ArticleHeader({ title }: ArticleHeaderProps) {
 
       <ArticleSourceLine className="mb-4" />
 
-      <ArticleTabs />
+      {showTabs && <ArticleTabs />}
     </div>
   );
 }

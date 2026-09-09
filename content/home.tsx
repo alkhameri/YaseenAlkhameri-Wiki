@@ -46,47 +46,9 @@ export const homeContent: JSONContent = {
       roleFocusItems: [
         { role: "Hardware", statement: "RTL design, FPGA prototyping, and digital verification.", seeAlso: { href: "/projects", label: "Projects" } },
         { role: "Firmware", statement: "Embedded C, Zephyr RTOS, and RISC-V systems.", seeAlso: { href: "/career", label: "Career" } },
-        { role: "Systems", statement: "Computer architecture, memory, and hardware–software integration.", seeAlso: { href: "/#education", label: "Education" } },
+        { role: "Systems", statement: "Computer architecture, memory, and hardware–software integration.", seeAlso: { href: "/projects#rv32-microkernel", label: "RISC-V Microkernel" } },
       ],
     },
     { title: "", variant: "home-activity-grid", hideFromArticleNav: true },
-    {
-      title: "Education",
-      date: "Expected December 2026",
-      description: (
-        <>
-          Yaseen is pursuing a Bachelor of Science in Computer Engineering at
-          <a href="https://www.ucdavis.edu/" target="_blank" rel="noopener noreferrer"> UC Davis</a>,
-          where he is an IEEE member and AvenueE Scholar. His coursework includes
-          Circuits 1 &amp; 2, Digital Systems 1 &amp; 2, Digital Electronic Circuits,
-          Computer Architecture, Advanced Computer Architecture, VLSI Design,
-          Digital Signals &amp; Systems, Embedded Systems, and Operating Systems.
-        </>
-      ),
-    },
-    {
-      title: "Skills",
-      description: (
-        <dl className="space-y-3">
-          <div>
-            <dt className="font-semibold">Programming</dt>
-            <dd>C, C++, Python, RISC-V assembly, Linux, Git</dd>
-          </div>
-          <div>
-            <dt className="font-semibold">Hardware &amp; verification</dt>
-            <dd>Verilog, SystemVerilog, ModelSim, Verilator, Intel Quartus Prime,
-              FPGAs, Cadence OrCAD, LTSpice, OpenLane, AMD Vivado</dd>
-          </div>
-          <div>
-            <dt className="font-semibold">Embedded platforms</dt>
-            <dd>Zephyr RTOS, ARM Cortex-M0+, Nordic nRF52, ESP32, STM32</dd>
-          </div>
-          <div>
-            <dt className="font-semibold">Languages</dt>
-            <dd>English, Mandarin Chinese, Arabic</dd>
-          </div>
-        </dl>
-      ),
-    },
   ],
 };

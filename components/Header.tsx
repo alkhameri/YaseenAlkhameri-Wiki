@@ -21,7 +21,7 @@ export default function Header() {
             <ToggleIcon className="h-5 w-5" aria-hidden="true" />
           </button>}
           <Link href="/" aria-label="Yaseen Alkhameri home" className="hidden h-8 w-8 shrink-0 border border-gray-300 md:block">
-            <Image src="/profile-photo.png" alt="" width={32} height={32} className="h-full w-full object-cover grayscale" />
+            <Image src="/computer-cat.png" alt="Computer cat wearing glasses at a laptop" width={32} height={32} className="h-full w-full object-cover" />
           </Link>
           <div className="hidden min-w-0 md:block"><ArticleOfTheDay /></div>
         </div>
