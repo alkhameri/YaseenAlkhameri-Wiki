@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import DossierContent from "./DossierContent";
+import PapersCatalogue from "./PapersCatalogue";
+import { MarkdownParagraphs } from "./InlineContent";
 import { WikiArticleLayout } from "./WikiContent";
 import {
   WikiBadgeRow,
@@ -103,6 +105,7 @@ export default function ProfessionalWorkTabs({
     ...content,
     sections: employmentSection?.subsections || [],
   };
+  const papersSection = content.sections.find((section) => section.group === "papers");
 
   return (
     <WikiArticleLayout content={content}>
@@ -117,6 +120,15 @@ export default function ProfessionalWorkTabs({
           <PublicationsCatalogue
             publications={publicationsSection.subsections || []}
           />
+        </WikiSection>
+      )}
+
+      {papersSection && (
+        <WikiSection section={papersSection}>
+          <div className="mb-3 text-sm leading-relaxed text-gray-600">
+            <MarkdownParagraphs text={papersSection.description} />
+          </div>
+          <PapersCatalogue papers={papersSection.subsections || []} />
         </WikiSection>
       )}
     </WikiArticleLayout>

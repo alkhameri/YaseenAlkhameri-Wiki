@@ -72,6 +72,9 @@ export interface ContentSection {
   hideFromArticleNav?: boolean;
   roleFocusItems?: RoleFocusItem[];
   venue?: string;
+  authors?: string[];
+  status?: string;
+  featured?: boolean;
   date?: string;
   description?: React.ReactNode;
   technologies?: string;
@@ -116,6 +119,7 @@ const CONTENT_LOADERS: Record<string, () => Promise<JSONContent>> = {
   home: () => import("../content/home").then((m) => m.homeContent),
   career: () => import("../content/career").then((m) => m.careerContent),
   projects: () => import("../content/projects").then((m) => m.projectsContent),
+  papers: () => import("../content/papers").then((m) => m.papersContent),
   blog: () => import("../content/blog").then((m) => m.blogContent),
   contact: () => import("../content/contact").then((m) => m.contactContent),
   ama: () => import("../content/ama").then((m) => m.amaContent),
@@ -176,6 +180,7 @@ export function extractSearchableText(content: JSONContent): string {
       sectionText += section.title + " ";
 
       sectionText += reactNodeToText(section.description) + " ";
+      sectionText += (section.authors ?? []).join(" ") + " " + (section.status ?? "") + " ";
       if (section.technologies) {
         sectionText += section.technologies + " ";
       }
@@ -214,6 +219,7 @@ export function extractSections(
       if (!section.title.trim()) return;
 
       let sectionContent = reactNodeToText(section.description) + " ";
+      sectionContent += (section.authors ?? []).join(" ") + " " + (section.status ?? "") + " ";
       if (section.technologies) {
         sectionContent += section.technologies + " ";
       }

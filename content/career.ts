@@ -1,6 +1,7 @@
 import type { JSONContent } from "@/lib/json-content";
 import { industryWorkContent } from "./industry-work";
 import { yaseenInfobox } from "./profile-infobox";
+import { papersSection } from "./papers";
 
 export const careerContent: JSONContent = {
   title: "Career",
@@ -27,5 +28,5 @@ export const careerContent: JSONContent = {
         }],
       };
     }),
-  }],
+  }, papersSection],
 };

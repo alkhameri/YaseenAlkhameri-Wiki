@@ -39,7 +39,7 @@ The public layout follows the upstream wiki's fixed header, Pages and This
 Article sidebar, profile infobox, project catalogue, and career timeline.
 `/career` includes the existing professional experience; `/industry-work`
 permanently redirects there, preserving old links. Existing projects, blog,
-contact information, education, skills, and collections remain available.
+contact information, and collections remain available.
 
 Apply `supabase/migrations/0004_ama_questions.sql` to enable `/ama`. Visitors
 can submit anonymous questions. Sign in and open `/admin/ama` to publish or
@@ -47,3 +47,18 @@ edit answers and archive questions. Unanswered and archived questions are
 never included in the public archive. Archiving retains the database row.
 The admin page and each moderation action verify the administrator session.
 Both pages display an unavailable/setup message if Supabase is not ready.
+
+## Papers
+
+`/papers` and the Papers section of `/career` share the catalogue in
+`content/papers.ts`. The layout adapts the upstream publications table, but
+explicitly labels these works **Unpublished**. Author order follows the PDFs.
+The cache-coherence paper is featured first and linked from the home overview
+and Systems panel. Titles, summaries, authors, and topics are searchable.
+
+The original documents supplied in the local `papers/` folder are preserved.
+Their public copies live in `public/papers/` with stable, readable filenames;
+these static PDFs are deployed with the site and require no Supabase setup.
+To add another paper, place its PDF in `public/papers/` and add an entry to
+`content/papers.ts`, retaining an accurate publication status. Do not describe
+proposed future work as an implemented result.
