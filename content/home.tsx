@@ -30,7 +30,7 @@ export const homeContent: JSONContent = {
           detector, a synthesizable RISC-V CPU, and a preemptive RISC-V
           microkernel.
           {" "}He also coauthored an unpublished study of
-          {" "}<a href="/papers#cache-coherence-gem5">cache-coherence protocols for sparse-matrix and graph workloads in gem5</a>.
+          {" "}<a href="/career#cache-coherence-gem5">cache-coherence protocols for sparse-matrix and graph workloads in gem5</a>.
           <br />
           <br />
           Outside of coursework and hardware projects, he is president of the
@@ -48,7 +48,7 @@ export const homeContent: JSONContent = {
       roleFocusItems: [
         { role: "Hardware", statement: "RTL design, FPGA prototyping, and digital verification.", seeAlso: { href: "/projects", label: "Projects" } },
         { role: "Firmware", statement: "Embedded C, Zephyr RTOS, and RISC-V systems.", seeAlso: { href: "/career", label: "Career" } },
-        { role: "Systems", statement: "Computer architecture, memory, and hardware–software integration.", seeAlso: { href: "/papers#cache-coherence-gem5", label: "Papers" } },
+        { role: "Systems", statement: "Computer architecture, memory, and hardware–software integration.", seeAlso: { href: "/career#cache-coherence-gem5", label: "Papers" } },
       ],
     },
     { title: "", variant: "home-activity-grid", hideFromArticleNav: true },

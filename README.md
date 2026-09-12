@@ -50,8 +50,10 @@ Both pages display an unavailable/setup message if Supabase is not ready.
 
 ## Papers
 
-`/papers` and the Papers section of `/career` share the catalogue in
-`content/papers.ts`. The layout adapts the upstream publications table, but
+The Papers section of `/career` uses the catalogue in `content/papers.ts`.
+There is no standalone Papers page or Pages-menu entry; old `/papers` links
+redirect to `/career#papers`, while PDF URLs remain unchanged.
+The layout adapts the upstream publications table, but
 explicitly labels these works **Unpublished**. Author order follows the PDFs.
 The cache-coherence paper is featured first and linked from the home overview
 and Systems panel. Titles, summaries, authors, and topics are searchable.

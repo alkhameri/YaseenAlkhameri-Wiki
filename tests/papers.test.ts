@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { papers, papersSection } from "../content/papers";
-import { getArticleNavigation, getJSONContent, sectionId } from "../lib/json-content";
+import { getAllJSONContent, getArticleNavigation, getJSONContent, sectionId } from "../lib/json-content";
 import { navigationItems } from "../lib/navigation";
 import { searchJSONContent } from "../lib/search-json";
 
@@ -33,21 +33,33 @@ test("each paper links to a deployed PDF with a unique, stable URL", () => {
   }
 });
 
-test("Papers navigation and Career reuse the same catalogue without removing employment", async () => {
-  const content = await getJSONContent("papers");
+test("papers appear only within Career, without a separate Pages-menu or search entry", async () => {
   const career = await getJSONContent("career");
-  assert.ok(navigationItems.some((item) => item.href === "/papers" && item.sidebarLabel === "Papers"));
-  assert.equal(content.sections[0], papersSection);
+  assert.ok(!navigationItems.some((item) => item.href === "/papers" || item.sidebarLabel === "Papers"));
+  assert.ok(!Object.values(await getAllJSONContent()).some((content) => content.url === "/papers"));
+  await assert.rejects(getJSONContent("papers"), /Content file not found/);
   assert.equal(career.sections.find((section) => section.group === "papers"), papersSection);
   assert.equal(career.sections[0].group, "employment");
-  assert.deepEqual(getArticleNavigation(content).map((item) => item.href), ["#papers", ...papers.map((paper) => `#${sectionId(paper)}`)]);
+  const anchors = getArticleNavigation(career).map((item) => item.href);
+  for (const id of ["papers", ...papers.map(sectionId)]) assert.ok(anchors.includes(`#${id}`));
 });
 
 test("site search finds paper topics and coauthors using real paper anchors", async () => {
   for (const query of ["MOESI", "Kevin Le", "Isidro Pulido"]) {
     const results = await searchJSONContent(query);
-    const result = results.find((item) => item.url === "/papers");
-    assert.ok(result, `Missing Papers search result for ${query}`);
+    assert.ok(!results.some((item) => item.url === "/papers"));
+    const result = results.find((item) => item.url === "/career");
+    assert.ok(result, `Missing Career paper search result for ${query}`);
     if (result.sectionId) assert.ok(["papers", ...papers.map(sectionId)].includes(result.sectionId));
   }
+});
+
+test("the old Papers page redirects to Career without redirecting PDF downloads", async () => {
+  const { default: config } = await import("../next.config.mjs");
+  assert.ok(config.redirects);
+  const redirects = await config.redirects();
+  assert.deepEqual(redirects.find((redirect) => redirect.source === "/papers"), {
+    source: "/papers", destination: "/career#papers", permanent: true,
+  });
+  assert.ok(!redirects.some((redirect) => redirect.source.startsWith("/papers/")));
 });

@@ -119,7 +119,6 @@ const CONTENT_LOADERS: Record<string, () => Promise<JSONContent>> = {
   home: () => import("../content/home").then((m) => m.homeContent),
   career: () => import("../content/career").then((m) => m.careerContent),
   projects: () => import("../content/projects").then((m) => m.projectsContent),
-  papers: () => import("../content/papers").then((m) => m.papersContent),
   blog: () => import("../content/blog").then((m) => m.blogContent),
   contact: () => import("../content/contact").then((m) => m.contactContent),
   ama: () => import("../content/ama").then((m) => m.amaContent),

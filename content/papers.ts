@@ -1,5 +1,4 @@
-import type { ContentSection, JSONContent } from "@/lib/json-content";
-import { yaseenInfobox } from "./profile-infobox";
+import type { ContentSection } from "@/lib/json-content";
 
 export const papers: ContentSection[] = [
   {
@@ -35,14 +34,4 @@ export const papersSection: ContentSection = {
   description:
     "Unpublished academic papers and project reports coauthored at UC Davis. These works are shared for reading and are not journal or conference publications.",
   subsections: papers,
-};
-
-export const papersContent: JSONContent = {
-  title: "Papers",
-  description: "Unpublished papers on cache coherence, computer architecture, and FPGA object detection by Yaseen Alkhameri and collaborators",
-  url: "/papers",
-  disambiguation: "This article lists unpublished work coauthored by [Yaseen Alkhameri](/). For implementations, see [Projects](/projects); for professional experience, see [Career](/career).",
-  infobox: yaseenInfobox,
-  infoboxTitle: "Yaseen Alkhameri",
-  sections: [papersSection],
 };
