@@ -6,7 +6,7 @@ import { WikiBadgeRow, WikiExternalLinkBadge } from "./WikiPrimitives";
 export default function PapersCatalogue({ papers }: { papers: ContentSection[] }) {
   return (
     <table className="block w-full border-collapse text-sm xl:table">
-      <caption className="sr-only">Unpublished papers and project reports</caption>
+      <caption className="sr-only">Working papers and unpublished project reports</caption>
       <thead className="hidden xl:table-header-group">
         <tr className="border-y border-gray-300 bg-gray-100 text-left">
           {['Year', 'Paper', 'Status', 'Topics', 'Links'].map((label) => (

@@ -1,11 +1,12 @@
 import React from "react";
 import { JSONContent } from "@/lib/json-content";
 import { yaseenInfobox } from "./profile-infobox";
+import { currentRole } from "./current-role";
 
 export const homeContent: JSONContent = {
   title: "Yaseen Alkhameri",
-  subtitle: "Hardware Engineer",
-  description: "Personal project dump/portfolio",
+  subtitle: currentRole.title,
+  description: "Yaseen Alkhameri's portfolio: SoC development, SSD controller RTL, UVM verification, embedded firmware, and computer architecture research",
   url: "/",
   disambiguation:
     "This article is about the hardware engineer. For his technical blog, see [Yaseen Alkhameri (blog)](/blog).",
@@ -23,14 +24,16 @@ export const homeContent: JSONContent = {
           synthesizable <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>,
           bare-metal <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C</a>, and
           <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC-V</a> systems.
-          His experience includes embedded firmware at AIVision Food and
-          data-center SSD systems integration at <a href="https://www.solidigm.com/" target="_blank" rel="noopener noreferrer">Solidigm</a>,
-          where he developed tooling for firmware-release analysis and
+          {" "}He is a {currentRole.title} at <a href={currentRole.websiteUrl} target="_blank" rel="noopener noreferrer">{currentRole.company}</a>,
+          developing SystemVerilog RTL and performing UVM-based verification for an SSD controller ASIC.
+          His previous experience includes embedded firmware at AIVision Food and
+          SSD systems integration at Solidigm, where he developed tooling for firmware-release analysis and
           configuration management. His projects include a real-time FPGA matched-filter object
           detector, a synthesizable RISC-V CPU, and a preemptive RISC-V
           microkernel.
-          {" "}He also coauthored an unpublished study of
-          {" "}<a href="/career#cache-coherence-gem5">cache-coherence protocols for sparse-matrix and graph workloads in gem5</a>.
+          {" "}He also coauthored the <a href="/career#moesi-d">MOESI-D working paper</a> on
+          delegated atomic updates in gem5, building on an earlier
+          {" "}<a href="/career#cache-coherence-gem5">cache-coherence study of sparse-matrix and graph workloads</a>.
           <br />
           <br />
           Outside of coursework and hardware projects, he is president of the
@@ -46,9 +49,9 @@ export const homeContent: JSONContent = {
       variant: "home-role-focus",
       hideFromArticleNav: true,
       roleFocusItems: [
-        { role: "Hardware", statement: "RTL design, FPGA prototyping, and digital verification.", seeAlso: { href: "/projects", label: "Projects" } },
+        { role: "Hardware", statement: "SystemVerilog RTL, UVM verification, and FPGA prototyping.", seeAlso: { href: "/projects", label: "Projects" } },
         { role: "Firmware", statement: "Embedded C, Zephyr RTOS, and RISC-V systems.", seeAlso: { href: "/career", label: "Career" } },
-        { role: "Systems", statement: "Computer architecture, memory, and hardware–software integration.", seeAlso: { href: "/career#cache-coherence-gem5", label: "Papers" } },
+        { role: "Systems", statement: "Computer architecture, memory, and hardware–software integration.", seeAlso: { href: "/career#papers", label: "Papers" } },
       ],
     },
     { title: "", variant: "home-activity-grid", hideFromArticleNav: true },

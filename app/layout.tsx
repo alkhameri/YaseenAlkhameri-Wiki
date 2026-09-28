@@ -4,11 +4,12 @@ import Header from "@/components/Header";
 import BeaconProvider from "@/components/BeaconProvider";
 import { MobileSidebarProvider } from "@/components/MobileSidebarProvider";
 import SearchHighlight from "@/components/SearchHighlight";
+import { currentRole } from "@/content/current-role";
 
 export const metadata: Metadata = {
   title: "Yaseen Alkhameri - Hardware & Embedded Systems",
   description:
-    "Personal website of Yaseen Alkhameri — RTL, FPGA, ASIC, and embedded systems",
+    `Yaseen Alkhameri, ${currentRole.title} at ${currentRole.company} — SSD controller RTL, UVM verification, FPGA, and embedded systems`,
   generator: "v0.dev",
 };
 

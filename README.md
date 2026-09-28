@@ -54,9 +54,12 @@ The Papers section of `/career` uses the catalogue in `content/papers.ts`.
 There is no standalone Papers page or Pages-menu entry; old `/papers` links
 redirect to `/career#papers`, while PDF URLs remain unchanged.
 The layout adapts the upstream publications table, but
-explicitly labels these works **Unpublished**. Author order follows the PDFs.
-The cache-coherence paper is featured first and linked from the home overview
-and Systems panel. Titles, summaries, authors, and topics are searchable.
+explicitly labels working papers and unpublished reports, without implying peer review.
+Author order follows the PDFs. MOESI-D is listed first alongside the earlier
+cache-coherence study; both are featured and linked from the home overview.
+The Systems panel links to the full catalogue. Titles, summaries, authors,
+and topics are searchable. The MOESI-D PDF is the cited version downloaded
+from Overleaf, including attribution to the earlier SpMV/graph study.
 
 The original documents supplied in the local `papers/` folder are preserved.
 Their public copies live in `public/papers/` with stable, readable filenames;

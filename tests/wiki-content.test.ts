@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { getArticleNavigation, getJSONContent, sectionId } from "../lib/json-content";
+import { extractSearchableText, getAllJSONContent, getArticleNavigation, getJSONContent, sectionId } from "../lib/json-content";
 import { searchJSONContent } from "../lib/search-json";
 import { validateAmaAnswer, validateAmaQuestion, validateQuestionId } from "../lib/ama/validation";
+import { currentRole } from "../content/current-role";
 
 test("home ends at the activity grid without Education or Skills sections or broken focus links", async () => {
   const content = await getJSONContent("home");
@@ -38,6 +39,42 @@ test("career search resolves to real section anchors and handles literal program
   assert.ok(ids.includes(careerResult.sectionId) || careerResult.sectionId === "employment");
   assert.ok((await searchJSONContent("C++")).length > 0);
   await searchJSONContent("[test](.*)");
+});
+
+test("the SoC co-op is current through December and shares Solidigm's timeline with the prior internship", async () => {
+  const career = await getJSONContent("career");
+  const companies = career.sections.find((section) => section.group === "employment")!.subsections!;
+  assert.deepEqual(companies.map((company) => company.title), ["Solidigm", "AIVision Food"]);
+  const solidigmRoles = companies[0].subsections!;
+  assert.deepEqual(solidigmRoles.map((role) => role.title), [
+    "SoC Development Engineer Co-op",
+    "Product Development Engineering Intern",
+  ]);
+  assert.equal(solidigmRoles[0].date, "September – December 2026 · Current position");
+  assert.equal(solidigmRoles[0].description, currentRole.description);
+  assert.ok(currentRole.description.split(/\s+/).length < 30);
+  assert.match(currentRole.description, /SystemVerilog.*UVM.*SSD controller ASIC/);
+  assert.equal(solidigmRoles[1].date, "June 2026 - September 2026");
+  assert.equal(companies[1].subsections![0].title, "Firmware Engineering Intern");
+  const ids = companies.flatMap((company) => [sectionId(company), ...company.subsections!.map(sectionId)]);
+  assert.equal(new Set(ids).size, ids.length, "Company and role anchors must remain unique");
+  const results = await searchJSONContent("UVM");
+  assert.ok(results.some((result) => result.url === "/career"));
+});
+
+test("all profile infoboxes and the home overview describe the current SoC role", async () => {
+  const allContent = Object.values(await getAllJSONContent());
+  const profiles = allContent.filter((content) => content.infobox);
+  assert.ok(profiles.length >= 4);
+  for (const content of profiles) {
+    const position = content.infobox!.fields.find((field) => field.label === "Position")!.value;
+    assert.equal(position, `${currentRole.title}\n${currentRole.dates}`);
+    assert.doesNotMatch(position, /Product Development Engineering Intern/);
+  }
+  const home = await getJSONContent("home");
+  assert.equal(home.subtitle, currentRole.title);
+  assert.match(extractSearchableText(home), /SoC Development Engineer Co-op/);
+  assert.match(extractSearchableText(home), /MOESI-D working paper/);
 });
 
 test("AMA rejects empty/oversized content and invalid identifiers before database mutations", () => {

@@ -1,4 +1,5 @@
 import type { Infobox } from "@/lib/json-content";
+import { currentRole } from "./current-role";
 
 export const yaseenInfobox: Infobox = {
   image: "/profile-photo.png",
@@ -10,8 +11,8 @@ export const yaseenInfobox: Infobox = {
   ],
   fields: [
     { label: "Location", value: "San Francisco Bay Area" },
-    { label: "Position", value: "Product Development Engineering Intern\nJune – September 2026" },
-    { label: "Institution", value: "[Solidigm](https://www.solidigm.com/)" },
+    { label: "Position", value: `${currentRole.title}\n${currentRole.dates}` },
+    { label: "Institution", value: `[${currentRole.company}](${currentRole.websiteUrl})` },
     { label: "Education", value: "B.S. Computer Engineering\n[University of California, Davis](https://www.ucdavis.edu/)\nExpected December 2026" },
     { label: "Born", value: "May 25, 2004\nOakland, California, U.S." },
   ],

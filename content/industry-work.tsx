@@ -1,5 +1,6 @@
 import React from "react";
 import { ImagePosition, JSONContent } from "@/lib/json-content";
+import { currentRole } from "./current-role";
 
 export const industryWorkContent: JSONContent = {
   title: "Industry Work",
@@ -9,6 +10,19 @@ export const industryWorkContent: JSONContent = {
   disambiguation:
     "This article covers the professional work experience of Yaseen Alkhameri. For personal projects, see the Projects page.",
   sections: [
+    {
+      title: `${currentRole.title} - ${currentRole.company}`,
+      date: `${currentRole.dates} · Current position`,
+      websiteUrl: currentRole.websiteUrl,
+      description: currentRole.description,
+      technologies: currentRole.technologies,
+      image: {
+        src: "/solidigm.jpg",
+        alt: "Solidigm logo",
+        caption: "Solidigm",
+        position: ImagePosition.LEFT,
+      },
+    },
     {
       title: "Product Development Engineering Intern - Solidigm",
       date: "June 2026 - September 2026",
