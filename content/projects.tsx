@@ -37,29 +37,42 @@ export const projectsContent: JSONContent = {
         "Verilog, SystemVerilog, Python, Quartus, ModelSim, DE1-SoC, D8M Camera, VGA, FPGA Video Pipelines",
     },
     {
-      title: "Compact RISC-V Core (Verilog)",
+      id: "compact-risc-v-core-verilog",
+      title: "Five-Stage RISC-V Core (SystemVerilog)",
       githubUrl: "https://github.com/alkhameri/riscv-core-verilog",
       image: {
         src: "/GDSLayout.png",
-        alt: "RISC-V core GDS layout",
-        caption: "RV32I-style core: RTL to FPGA to OpenLane GDS",
+        alt: "OpenLane GDS layout of the original Verilog RISC-V core",
+        caption: "Original Verilog revision: OpenLane GDS layout",
         position: ImagePosition.LEFT,
       },
       description: (
         <>
-          Yaseen designed a compact, synthesizable RV32I-style
-          <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC-V</a>
-          <span> </span>core implemented in <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>.
-          It includes a program counter, register file, ALU, control unit, and
-          synchronous instruction/data memories targeting Intel M9K BRAMs.
-          He verified functionality with Verilog and C/C++ testbenches in
-          ModelSim and Verilator, then used
+          Yaseen extended his earlier Verilog processor into a five-stage
+          SystemVerilog <a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC-V</a>
+          <span> </span>core, defining the pipeline organization, operand forwarding,
+          and branch-prediction approach. The RV32IMA core uses MEM-to-EX and
+          WB-to-EX forwarding, WB-to-ID bypass, and load-use stalls. Its tournament
+          predictor combines bimodal and gshare tables with a two-way branch
+          target buffer and a return-address stack.
+          <br />
+          <br />
+          Verilator regressions compare 28,435 retired instructions against a
+          separate C++ instruction model across six memory-latency configurations.
+          The RTL system includes RAM, a timer, and a UART, and boots an adapted
+          microkernel with timer-driven context switches in simulation. The current
+          revision has not been measured for FPGA resource usage, timing, or
+          physical-board execution.
+          <br />
+          <br />
+          The original Verilog revision, pictured here, went through
           <a href="https://openlane.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer"> OpenLane</a>
-          <span> </span>for ASIC synthesis, floorplanning, placement, clock-tree
-          synthesis, routing, and timing closure through GDS II generation.
+          <span> </span>synthesis, floorplanning, placement, clock-tree synthesis,
+          routing, and timing closure. Those physical-design results apply to the
+          original core; the five-stage revision is validated in simulation.
         </>
       ),
-      technologies: "Verilog, RISC-V, ModelSim, Verilator, Quartus, OpenLane",
+      technologies: "SystemVerilog, RV32IMA, Pipelining, Operand Forwarding, Branch Prediction, Verilator, C++",
     },
     {
       title: "RV32 Microkernel",

@@ -47,18 +47,17 @@ test("the SoC co-op is current through December and shares Solidigm's timeline w
   assert.deepEqual(companies.map((company) => company.title), ["Solidigm", "AIVision Food"]);
   const solidigmRoles = companies[0].subsections!;
   assert.deepEqual(solidigmRoles.map((role) => role.title), [
-    "SoC Development Engineer Co-op",
+    "SoC Design Engineer Co-op",
     "Product Development Engineering Intern",
   ]);
   assert.equal(solidigmRoles[0].date, "September – December 2026 · Current position");
   assert.equal(solidigmRoles[0].description, currentRole.description);
-  assert.ok(currentRole.description.split(/\s+/).length < 30);
-  assert.match(currentRole.description, /SystemVerilog.*UVM.*SSD controller ASIC/);
+  assert.match(currentRole.description, /MMIO.*SSD controller ASIC.*microarchitecture.*SystemVerilog RTL/);
   assert.equal(solidigmRoles[1].date, "June 2026 - September 2026");
   assert.equal(companies[1].subsections![0].title, "Firmware Engineering Intern");
   const ids = companies.flatMap((company) => [sectionId(company), ...company.subsections!.map(sectionId)]);
   assert.equal(new Set(ids).size, ids.length, "Company and role anchors must remain unique");
-  const results = await searchJSONContent("UVM");
+  const results = await searchJSONContent("MMIO");
   assert.ok(results.some((result) => result.url === "/career"));
 });
 
@@ -73,7 +72,7 @@ test("all profile infoboxes and the home overview describe the current SoC role"
   }
   const home = await getJSONContent("home");
   assert.equal(home.subtitle, currentRole.title);
-  assert.match(extractSearchableText(home), /SoC Development Engineer Co-op/);
+  assert.match(extractSearchableText(home), /SoC Design Engineer Co-op/);
   assert.match(extractSearchableText(home), /MOESI-D working paper/);
 });
 

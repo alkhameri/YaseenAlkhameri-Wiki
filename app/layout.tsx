@@ -9,7 +9,7 @@ import { currentRole } from "@/content/current-role";
 export const metadata: Metadata = {
   title: "Yaseen Alkhameri - Hardware & Embedded Systems",
   description:
-    `Yaseen Alkhameri, ${currentRole.title} at ${currentRole.company} — SSD controller RTL, UVM verification, FPGA, and embedded systems`,
+    `Yaseen Alkhameri, ${currentRole.title} at ${currentRole.company} — MMIO microarchitecture, SystemVerilog RTL, block-level verification, and FPGA systems`,
   generator: "v0.dev",
 };
 

@@ -6,7 +6,7 @@ import { currentRole } from "./current-role";
 export const homeContent: JSONContent = {
   title: "Yaseen Alkhameri",
   subtitle: currentRole.title,
-  description: "Yaseen Alkhameri's portfolio: SoC development, SSD controller RTL, UVM verification, embedded firmware, and computer architecture research",
+  description: "Yaseen Alkhameri's portfolio: SoC design, MMIO microarchitecture, SystemVerilog RTL, block-level verification, and computer architecture research",
   url: "/",
   disambiguation:
     "This article is about the hardware engineer. For his technical blog, see [Yaseen Alkhameri (blog)](/blog).",
@@ -21,15 +21,15 @@ export const homeContent: JSONContent = {
           <span> </span><a href="https://en.wikipedia.org/wiki/Register-transfer_level" target="_blank" rel="noopener noreferrer">RTL</a> design,
           embedded firmware, and digital verification. His work spans
           <span> </span><a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array" target="_blank" rel="noopener noreferrer">FPGA</a> prototyping,
-          synthesizable <a href="https://en.wikipedia.org/wiki/Verilog" target="_blank" rel="noopener noreferrer">Verilog</a>,
+          <a href="https://en.wikipedia.org/wiki/SystemVerilog" target="_blank" rel="noopener noreferrer">SystemVerilog</a> RTL,
           bare-metal <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C</a>, and
           <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC-V</a> systems.
           {" "}He is a {currentRole.title} at <a href={currentRole.websiteUrl} target="_blank" rel="noopener noreferrer">{currentRole.company}</a>,
-          developing SystemVerilog RTL and performing UVM-based verification for an SSD controller ASIC.
+          owning MMIO microarchitecture, SystemVerilog RTL, and block-level verification for a pre-silicon SSD controller ASIC.
           His previous experience includes embedded firmware at AIVision Food and
           SSD systems integration at Solidigm, where he developed tooling for firmware-release analysis and
           configuration management. His projects include a real-time FPGA matched-filter object
-          detector, a synthesizable RISC-V CPU, and a preemptive RISC-V
+          detector, a five-stage RISC-V CPU with forwarding and tournament branch prediction, and a preemptive RISC-V
           microkernel.
           {" "}He also coauthored the <a href="/career#moesi-d">MOESI-D working paper</a> on
           delegated atomic updates in gem5, building on an earlier
@@ -49,7 +49,7 @@ export const homeContent: JSONContent = {
       variant: "home-role-focus",
       hideFromArticleNav: true,
       roleFocusItems: [
-        { role: "Hardware", statement: "SystemVerilog RTL, UVM verification, and FPGA prototyping.", seeAlso: { href: "/projects", label: "Projects" } },
+        { role: "Hardware", statement: "MMIO microarchitecture, SystemVerilog RTL, and block-level verification.", seeAlso: { href: "/career", label: "Career" } },
         { role: "Firmware", statement: "Embedded C, Zephyr RTOS, and RISC-V systems.", seeAlso: { href: "/career", label: "Career" } },
         { role: "Systems", statement: "Computer architecture, memory, and hardware–software integration.", seeAlso: { href: "/career#papers", label: "Papers" } },
       ],

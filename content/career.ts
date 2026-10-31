@@ -26,7 +26,7 @@ const companies = industryWorkContent.sections.reduce<ContentSection[]>((entries
 
 export const careerContent: JSONContent = {
   title: "Career",
-  description: "Engineering experience in SoC development, SSD controller RTL and UVM verification, systems integration, and embedded firmware",
+  description: "Engineering experience in SoC design, MMIO microarchitecture, SSD controller RTL and block-level verification, systems integration, and embedded firmware",
   url: "/career",
   disambiguation: "This article covers the career of [Yaseen Alkhameri](/). For independent projects, see [Yaseen Alkhameri (Projects)](/projects).",
   infobox: yaseenInfobox,
