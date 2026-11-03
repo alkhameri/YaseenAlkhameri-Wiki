@@ -11,10 +11,10 @@ import {
 } from "../lib/wiki-banner/articles";
 
 test("the requested articles cycle in order, then repeat without missing a day", () => {
-  assert.equal(DEFAULT_ROTATION.articles.length, 7);
-  for (let day = 0; day < 21; day++) {
+  assert.equal(DEFAULT_ROTATION.articles.length, 11);
+  for (let day = 0; day < DEFAULT_ROTATION.articles.length * 3; day++) {
     const now = new Date(Date.UTC(2026, 8, 8 + day, 12));
-    assert.equal(getDailyArticle(DEFAULT_ROTATION, now).url, DEFAULT_ROTATION.articles[day % 7]);
+    assert.equal(getDailyArticle(DEFAULT_ROTATION, now).url, DEFAULT_ROTATION.articles[day % DEFAULT_ROTATION.articles.length]);
   }
 });
 
@@ -38,7 +38,7 @@ test("spring and fall daylight-saving transitions each count as one calendar day
 
 test("single-article rotations and dates before the anchor remain valid", () => {
   const now = new Date("2026-09-07T12:00:00Z");
-  assert.equal(getDailyArticle(DEFAULT_ROTATION, now).url, DEFAULT_ROTATION.articles[6]);
+  assert.equal(getDailyArticle(DEFAULT_ROTATION, now).url, DEFAULT_ROTATION.articles.at(-1));
   assert.equal(getDailyArticle({ ...DEFAULT_ROTATION, articles: [DEFAULT_ROTATION.articles[0]] }, now).url, DEFAULT_ROTATION.articles[0]);
   assert.equal(pacificDisplayDate(new Date("2026-12-01T07:59:59Z")), "2026-11-30");
 });

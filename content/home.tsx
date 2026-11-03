@@ -29,8 +29,9 @@ export const homeContent: JSONContent = {
           His previous experience includes embedded firmware at AIVision Food and
           SSD systems integration at Solidigm, where he developed tooling for firmware-release analysis and
           configuration management. His projects include a real-time FPGA matched-filter object
-          detector, a five-stage RISC-V CPU with forwarding and tournament branch prediction, and a preemptive RISC-V
-          microkernel.
+          detector, a <a href="/projects#compact-risc-v-core-verilog">five-stage RISC-V CPU</a>
+          {" "}with forwarding and tournament branch prediction implemented as a
+          SKY130 ASIC macro, and a preemptive RISC-V microkernel.
           {" "}He also coauthored the <a href="/career#moesi-d">MOESI-D working paper</a> on
           delegated atomic updates in gem5, building on an earlier
           {" "}<a href="/career#cache-coherence-gem5">cache-coherence study of sparse-matrix and graph workloads</a>.

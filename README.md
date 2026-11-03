@@ -2,10 +2,17 @@
 
 This repository is a personal portfolio and knowledge base for Yaseen
 Alkhameri. It highlights digital systems and hardware work including a
-five-stage RISC-V core (SystemVerilog RTL), FPGA prototyping notes,
-Verilator simulation evidence, and the original Verilog core's OpenLane
-flow for GDS generation. The career page covers MMIO microarchitecture,
+five-stage RISC-V core implemented as a SKY130A hard macro, FPGA prototyping
+notes, and RTL/gate-level simulation evidence. The current core's OpenLane
+flow closes timing at 16.67 MHz across nine PVT/RC corners with zero reported
+DRC errors and GDS-based LVS mismatches. The career page covers MMIO microarchitecture,
 RTL development, and block-level verification at Solidigm.
+
+The project image, `public/rv32-core-sky130-classic.png`, is a KLayout rendering
+of that core's final GDS, with green/blue/gold layers, diagonal hatching, and
+macro pin labels. Its source GDS SHA-256 is
+`0b37b5178984bf61dfd3ee2e8bb3617ae99c2ee75006a42bee380a3042fdace6`.
+The older `public/GDSLayout.png` remains available at its original URL.
 
 ## Development
 
@@ -14,7 +21,7 @@ Run `npm ci`, then `npm run dev`. Use `npm run typecheck`, `npm test`, and
 
 ## Article of the day
 
-The header cycles through the seven Wikipedia articles in
+The header cycles through the eleven Wikipedia articles in
 `content/wiki-articles.json`, once per calendar day in `America/Los_Angeles`.
 The defaults work without a database or a Wikipedia API request.
 

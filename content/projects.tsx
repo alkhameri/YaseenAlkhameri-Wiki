@@ -41,9 +41,10 @@ export const projectsContent: JSONContent = {
       title: "Five-Stage RISC-V Core (SystemVerilog)",
       githubUrl: "https://github.com/alkhameri/riscv-core-verilog",
       image: {
-        src: "/GDSLayout.png",
-        alt: "OpenLane GDS layout of the original Verilog RISC-V core",
-        caption: "Original Verilog revision: OpenLane GDS layout",
+        src: "/rv32-core-sky130-classic.png",
+        alt: "Final SKY130 layout of the five-stage RISC-V core, with green, blue, and gold layers and labeled pins",
+        caption: "Five-stage RV32IMA core: final SKY130 GDS, rendered in KLayout",
+        captionUrl: "/rv32-core-sky130-classic.png",
         position: ImagePosition.LEFT,
       },
       description: (
@@ -60,19 +61,23 @@ export const projectsContent: JSONContent = {
           Verilator regressions compare 28,435 retired instructions against a
           separate C++ instruction model across six memory-latency configurations.
           The RTL system includes RAM, a timer, and a UART, and boots an adapted
-          microkernel with timer-driven context switches in simulation. The current
-          revision has not been measured for FPGA resource usage, timing, or
-          physical-board execution.
+          microkernel with timer-driven context switches in simulation. A
+          zero-delay gate-level simulation of the final netlist matches all
+          333,831 retirement and trap events in the RTL kernel trace.
           <br />
           <br />
-          The original Verilog revision, pictured here, went through
+          The five-stage core is implemented as a SKY130A standard-cell hard macro through
           <a href="https://openlane.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer"> OpenLane</a>
           <span> </span>synthesis, floorplanning, placement, clock-tree synthesis,
-          routing, and timing closure. Those physical-design results apply to the
-          original core; the five-stage revision is validated in simulation.
+          routing, and timing closure. The 1.575 mm² macro meets a 60 ns
+          (16.67 MHz) clock constraint across nine PVT/RC corners, with positive
+          setup and hold slack, zero reported DRC errors, and zero GDS-based LVS
+          mismatches. The layout pictured here is the current core; RAM and
+          peripherals remain outside the macro. The repository includes
+          {" "}<a href="https://github.com/alkhameri/riscv-core-verilog/tree/main/asic/results/sky130" target="_blank" rel="noopener noreferrer">timing reports and physical-verification results</a>.
         </>
       ),
-      technologies: "SystemVerilog, RV32IMA, Pipelining, Operand Forwarding, Branch Prediction, Verilator, C++",
+      technologies: "SystemVerilog, RV32IMA, Verilator, C++, OpenLane, OpenROAD, SKY130A, KLayout, Magic, Netgen",
     },
     {
       title: "RV32 Microkernel",

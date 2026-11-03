@@ -22,6 +22,10 @@ values (true, '[
   "https://en.wikipedia.org/wiki/Cheese_Board_Collective",
   "https://en.wikipedia.org/wiki/Silicon_Valley",
   "https://en.wikipedia.org/wiki/181_Fremont",
-  "https://en.wikipedia.org/wiki/Oakland_Tribune"
+  "https://en.wikipedia.org/wiki/Oakland_Tribune",
+  "https://en.wikipedia.org/wiki/MacArthur_Maze",
+  "https://en.wikipedia.org/wiki/Apple_silicon",
+  "https://en.wikipedia.org/wiki/Nintendo_DSi",
+  "https://en.wikipedia.org/wiki/MissingNo."
 ]'::jsonb, '2026-09-08')
 on conflict (id) do nothing;
