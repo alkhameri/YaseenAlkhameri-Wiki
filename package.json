@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts",
-    "prebuild": "if [ \"$VERCEL_ENV\" = \"production\" ]; then tsx scripts/append-wiki-articles-2026-11-02.ts --apply; fi"
+    "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

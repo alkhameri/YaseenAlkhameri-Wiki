@@ -30,6 +30,14 @@ To enable editing, configure the Supabase and admin variables documented in
 to the site's Supabase database. This adds one settings table and does not
 change existing analytics data. Re-running it preserves saved articles.
 
+The four additions from November 2, 2026 (MacArthur Maze, Apple silicon,
+Nintendo DSi, and MissingNo.) were also appended to the saved production list.
+For another existing database, run
+`npx tsx scripts/append-wiki-articles-2026-11-02.ts` with Supabase variables set
+to preview that update, then add `--apply` to save. The command preserves
+existing entries, their order, and the start date, and rejects concurrent
+edits. It does not run on subsequent builds, so admin edits remain authoritative.
+
 Sign in at `/admin`, then select **Article of the day** (`/admin/banner`).
 Paste one English Wikipedia URL or article title per line. Reorder, add, or
 remove lines and save. Saving makes the first article today's pick and the
