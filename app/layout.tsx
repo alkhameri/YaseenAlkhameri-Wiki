@@ -7,7 +7,7 @@ import SearchHighlight from "@/components/SearchHighlight";
 import { currentRole } from "@/content/current-role";
 
 export const metadata: Metadata = {
-  title: "Yaseen Alkhameri - Hardware & Embedded Systems",
+  title: "Yaseen Alkhameri",
   description:
     `Yaseen Alkhameri, ${currentRole.title} at ${currentRole.company} — MMIO microarchitecture, SystemVerilog RTL, block-level verification, and FPGA systems`,
   generator: "v0.dev",
