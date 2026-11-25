@@ -21,7 +21,7 @@ export const homeContent: JSONContent = {
           <span> </span><a href="https://en.wikipedia.org/wiki/Register-transfer_level" target="_blank" rel="noopener noreferrer">RTL</a> design,
           embedded firmware, and digital verification. His work spans
           <span> </span><a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array" target="_blank" rel="noopener noreferrer">FPGA</a> prototyping,
-          <a href="https://en.wikipedia.org/wiki/SystemVerilog" target="_blank" rel="noopener noreferrer">SystemVerilog</a> RTL,
+          {" "}<a href="https://en.wikipedia.org/wiki/SystemVerilog" target="_blank" rel="noopener noreferrer">SystemVerilog</a> RTL,
           bare-metal <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" rel="noopener noreferrer">C</a>, and
           <span> </span><a href="https://en.wikipedia.org/wiki/RISC-V" target="_blank" rel="noopener noreferrer">RISC-V</a> systems.
           {" "}He is a {currentRole.title} at <a href={currentRole.websiteUrl} target="_blank" rel="noopener noreferrer">{currentRole.company}</a>,
